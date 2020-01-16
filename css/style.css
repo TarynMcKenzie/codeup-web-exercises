@@ -1,10 +1,19 @@
 /*
-multi
-line
-comment
+Order from general to specific
 */
+body {
+    background-color: bisque;
+    background-image: url("img/dan-freeman-wAn4RfmXtxU-unsplash.jpg");
+}
+
+h2, h3, h4, h5, h6 {
+    color: salmon;
+    text-decoration: underline;
+}
 
 .fancy-header {
     color: purple; /* single line comment */
     text-decoration: underline;
+    text-align: center;
 }
+
