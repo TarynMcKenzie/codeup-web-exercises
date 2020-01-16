@@ -12,33 +12,42 @@
     <main>
         <form method="POST" action="https://www.elformo.com/forms/b9de0ebc-84ac-417e-881e-d8977b25e01e">
             <section>
-                <label>Email</label>
+                <label for="email">Email:</label>
+                <br><br>
                 <input id="email" name="email" type="text" placeholder="Enter your email">
-                </br>
-                <label>Password</label>
+                </br><br>
+                <label for="password">Password:</label>
+                <br><br>
                 <input id="password" name="password" type="password" placeholder="Enter your password">
-                </br>
-                <label>bio</label>
-                <textarea name="bio" placeholder="Write a short bio about yourself"></textarea>
+                </br><br>
+                <label for="bio">Write a bio about yourself:</label>
+                <br><br>
+                <textarea id="bio" name="bio" placeholder="Write a short bio about yourself"></textarea>
             </section>
 
             <section>
-                <label>How did you hear about us?</label>
-                <input type="radio" name="advert" value="Billboard">Billboard
-                <input type="radio" name="advert" value="Radio">Radio Advertisement
-                <input type="radio" name="advert" value="Internet">Internet advertisement
-                <input type="radio" name="advert" value="Other">Other
+                <h3>How did you hear about us?</h3>
+                <label for="radio">Radio Ad</label>
+                <input id="radio" type="radio" name="advert" value="Billboard">
+                <label for="billboard">Billboard</label>
+                <input id="billboard" type="radio" name="advert" value="Radio">
+                <label for="internet">Internet</label>
+                <input id="internet" type="radio" name="advert" value="Internet">
+                <label for="other">Other</label>
+                <input id="other" type="radio" name="advert" value="Other">
             </section>
+            <br><br>
 
             <section>
-                <label name="browser">What web browser are you currently using?</label>
-                <select name="browser" id="browser">
+                <label for="browser" name="browser">What web browser are you currently using?</label>
+                <br>
+                <select id="browser" name="browser" id="browser">
                     <option name="browser" value="Chrome">Google Chrome</option>
                     <option name="browser" value="Safari">Safari</option>
                     <option name="browser" value="Firefox">Firefox</option>
                 </select>
             </section>
-
+            <br><br><br>
             <input type="submit">
         </form>
     </main>
