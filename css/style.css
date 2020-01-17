@@ -5,6 +5,7 @@ body {
     background-color: rosybrown;
     /*background-image: url("../img/3d-geometric-pattern-3.jpg");*/
     /*background-blend-mode: lighten;*/
+    margin: 0;
 }
 p{
     font-family: 'Roboto', sans-serif;
