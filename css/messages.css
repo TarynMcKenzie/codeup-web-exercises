@@ -1,0 +1,33 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Ubuntu, sans-serif;
+}
+
+
+/*----------styling for message components ------------*/
+#bg-info, #text-info, #bg-success, #text-success{
+    margin: 1em;
+    padding: 1em;
+    border-radius: .3em;
+    border: .05em solid lightgrey;
+}
+
+#bg-info{
+background: lightblue;
+    color: darkslateblue;
+}
+#text-info{
+background: lightgreen;
+    color: darkgreen;
+}
+#bg-success{
+background: lightgoldenrodyellow;
+    color: goldenrod;
+}
+#text-success{
+background: lightpink;
+    color: darkred;
+}
