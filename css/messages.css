@@ -4,30 +4,55 @@ body, html {
     padding: 0;
     margin: 0;
     font-family: Arial, Ubuntu, sans-serif;
+
+    /*----------***BONUS*** styling for message components ------------*/
+    --text-info: #514ea5;
+    --bg-info: #cddeff;
+    --text-success:#2d743a;
+    --bg-success:#cff3da;
+    --text-warning:#9f8c2e;
+    --bg-warning:#fcfbc9;
+    --text-error:#7f152e;
+    --bg-error:#fad3d7;
 }
 
 
+
+
 /*----------styling for message components ------------*/
-#bg-info, #text-info, #bg-success, #text-success{
+.message{
     margin: .5em;
     padding: .5em;
     border-radius: .3em;
     border: .05em solid #d3d3d3;
 }
 
-#bg-info{
-background: #cddeff;
-    color: #514ea5;
+.message-info{
+    /*background: #cddeff;*/
+    /*color: #514ea5;*/
+
+    background: var(--bg-info);
+    color: var(--text-info);
+
 }
-#text-info{
-background: #cff3da;
-    color: #2d743a;
+.message-success{
+    /*background: #cff3da;*/
+    /*color: #2d743a;*/
+
+    background: var(--bg-success);
+    color: var(--text-success);
 }
-#bg-success{
-background: #fcfbc9;
-    color: #9f8c2e;
+.message-warning{
+    /*background: #fcfbc9;*/
+    /*color: #9f8c2e;*/
+
+    background: var(--bg-warning);
+    color: var(--text-warning);
 }
-#text-success{
-background: #fad3d7;
-    color: #7f152e;
+.message-error{
+    /*background: #fad3d7;*/
+    /*color: #7f152e;*/
+
+    background: var(--bg-error);
+    color: var(--text-error);
 }
