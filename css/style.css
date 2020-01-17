@@ -30,6 +30,8 @@ th {
     border-bottom: 2px solid #fff;
     font-size: 2em;
     margin-left: 20px;
+    background-color: darkslategray;
+    padding: 10%;
 }
 td, tr {
     font-size: 100%;
@@ -83,13 +85,21 @@ main{
 }
 .images{
     background-color: darkslategray;
-    width: 100%;
-
+    padding: 10%;
+    text-align: center;
+}
+.pricing-table{
+    text-align: center;
+    padding: 10%;
+}
+.price-header{
+    font-size: 5em;
+    padding-bottom: 3%;
 }
 
 /*-------------This is for the pseudo -------------*/
 a:hover {
-    color: lightcoral;
+    color: white;
     text-decoration: none;
 }
 
@@ -98,7 +108,7 @@ a:active {
 }
 
 a:visited{
-    color: cornflowerblue;
+    color: darkslategray;
 }
 
 a:link{
@@ -107,4 +117,5 @@ a:link{
 
 tr:hover{
     background-color: mistyrose;
+    fill: rosybrown;
 }
