@@ -1,19 +1,110 @@
-/*
-Order from general to specific
-*/
+/*-------------Ordered from general to specific-------------*/
+
+/*-------------This is for elements-------------*/
 body {
-    background-color: bisque;
-    background-image: url("img/dan-freeman-wAn4RfmXtxU-unsplash.jpg");
+    background-color: rosybrown;
+    /*background-image: url("../img/3d-geometric-pattern-3.jpg");*/
+    /*background-blend-mode: lighten;*/
 }
-
+p{
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}
 h2, h3, h4, h5, h6 {
-    color: salmon;
-    text-decoration: underline;
+    color: #fff;
+    font-size: 2em;
+    font-family: 'Playfair Display', serif;
+}
+ul, ol{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+li {
+    padding-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: rosybrown;
+
+}
+th {
+    border-bottom: 2px solid #fff;
+    font-size: 2em;
+    margin-left: 20px;
+}
+td, tr {
+    font-size: 100%;
+    padding: 50px;
+    color: #fff;
+}
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: auto;
+}
+hr{
+    margin-top: 80px;
+    margin-bottom: 20px;
+    border-bottom-color: white;
+}
+main{
+    width: 100%;
 }
 
+
+/*-------------This is for the class elements-------------*/
 .fancy-header {
-    color: purple; /* single line comment */
-    text-decoration: underline;
+    color: #fff;
+    font-size: 10em;
+    font-family: 'Playfair Display', serif;
+    text-align: left;
+    margin-top: 20%;
+}
+.sub-fancy-header{
+    font-size: 1.5em;
+    text-align: left;
+    margin-bottom: 10%;
+}
+.fancy-header, .sub-fancy-header{
+    margin-left:10%;
+    margin-right: 10%;
+}
+.core-process-vision{
+    width: 100%;
     text-align: center;
+    background-color: white;
+}
+.core-values, .process, .vision{
+    display: inline-block;
+    margin: 10%;
+}
+.secondary-headers{
+    color: rosybrown;
+    margin-bottom: 25%;
+}
+.images{
+    background-color: darkslategray;
+    width: 100%;
+
 }
 
+/*-------------This is for the pseudo -------------*/
+a:hover {
+    color: lightcoral;
+    text-decoration: none;
+}
+
+a:active {
+    color: antiquewhite;
+}
+
+a:visited{
+    color: cornflowerblue;
+}
+
+a:link{
+    color: purple;
+}
+
+tr:hover{
+    background-color: mistyrose;
+}
