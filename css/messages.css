@@ -12,22 +12,22 @@ body, html {
     margin: .5em;
     padding: .5em;
     border-radius: .3em;
-    border: .05em solid lightgrey;
+    border: .05em solid #d3d3d3;
 }
 
 #bg-info{
-background: lightblue;
-    color: darkslateblue;
+background: #cddeff;
+    color: #514ea5;
 }
 #text-info{
-background: lightgreen;
-    color: darkgreen;
+background: #cff3da;
+    color: #2d743a;
 }
 #bg-success{
-background: lightgoldenrodyellow;
-    color: goldenrod;
+background: #fcfbc9;
+    color: #9f8c2e;
 }
 #text-success{
-background: lightpink;
-    color: darkred;
+background: #fad3d7;
+    color: #7f152e;
 }
