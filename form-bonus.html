@@ -7,21 +7,137 @@
 <body>
     <header>
         <section class="received">
-            <form action="Post" class="received-on">
+            <form method="Post" class="received-on" action="https://hookb.in/W1njxgwkPOu8bdB9l0EW">
                 <p>Received on
-                <input type="text" placeholder="date">
+                <input type="text" name="date" placeholder="date" required>
                 at
-                <input type="text" placeholder="time">
+                <input type="text" name="time" placeholder="time" required>
                 </p>
             </form>
         </section>
         <section class="form-header">
-            <img src="img/" alt="">
+            <img src="img/texas-realtors-logo.jpeg" alt="Texas Realtors logo graphic">
+            <h1 id="form-title">RESIDENTIAL RELEASE FORM</h1>
+            <p id="not-authorized">USE OF THIS FORM BY PERSONS WHO ARE NOT MEMBERS OF THE TEXAS ASSOCIATION OF REALTORS&reg IS NOT AUTHORIZED.</p>
+            <p id="copyright"><strong>&copyTexas Association of REALTORS&reg, Inc. 2007</strong></p>
+            <p id="occupant-notice"><em><strong>Each occupant and co-applicant 18 years or older must submit a separate application.</strong></em></p>
+            <hr>
         </section>
     </header>
-
     <main>
+        <form method="Post" class="form-tar-2003" action="https://hookb.in/W1njxgwkPOu8bdB9l0EW">
 
+                <fieldset>
+                    Property Address:
+                    <input type="text">
+                </fieldset>
+                <fieldset>
+                     Anticipated move in Date: <input type="text">
+                     Monthly Rent: <input type="text" placeholder="$">
+                     Security Deposit: <input type="text" placeholder="$">
+                </fieldset>
+                <fieldset class="reference">
+                    <p>Applicant was referred to Landlord by:</p>
+                    <input type="checkbox" name="refer" id="agent">
+                    <label for="agent">Real estate agent:</label>
+                    <input type="text" placeholder="name">
+                    <input type="number" placeholder="phone">
+
+                    <input type="checkbox" name="refer" id="paper">
+                    <label for="paper">Newspaper</label>
+
+                    <input type="checkbox" name="refer" id="sign">
+                    <label for="sign">Sign</label>
+
+                    <input type="checkbox" name="refer" id="internet">
+                    <label for="internet">Internet</label>
+
+                    <input type="checkbox" name="refer" id="other">
+                    <label for="other">Other</label>
+                    <input type="text" name="other-reference">
+                </fieldset>
+                <fieldset class="applicant-name">
+                    <p>Applicants name
+                        <input type="text" placeholder="first" name="first-name">
+                        <input type="text" placeholder="middle" name="middle-name">
+                        <input type="text" placeholder="last" name="last-name">
+                    </p>
+                </fieldset>
+                <fieldset class="co-applicant">
+                    <p>Is there a co-applicant?
+                        <label for="co-applicant">yes</label>
+                        <input type="radio" id="co-applicant" name="co-applicant">
+                        <label for="no-co-applicant">no</label>
+                        <input type="radio" id="no-co-applicant" name="co-applicant">
+                        <strong><em>If yes, co-applicant must submit a separate application.</em></strong>
+                    </p>
+                    <p>
+                        <label for="maiden-name">Applicant's former last name (maiden or married)</label>
+                        <input type="text" id="maiden-name" name="co-applicant">
+                    </p>
+                </fieldset>
+                <fieldset class="personal-info">
+                    <p>
+                        <label for="email">E-mail</label>
+                        <input type="text" id="email">
+                        <label for="h-phone">Home Phone</label>
+                        <input type="text" id="h-phone">
+                    </p>
+                    <p>
+                        <label for="w-phone">Work Phone</label>
+                        <input type="text" id="w-phone">
+                        <label for="mobile">Mobile/Pager</label>
+                        <input type="text" id="mobile">
+                    </p>
+                    <p>
+                        <label for="ss-number">Social Security Number</label>
+                        <input type="number" id="ss-number" name="ss-number">
+                        <label for="d-license">Driver License No.</label>
+                        <input type="text" id="d-license" name="license-number">
+                        <label for="state">in</label>
+                        <input type="text" id="state" name="id-state" placeholder="State">
+                    </p>
+                    <p>
+                        <label for="birth-date">Date of Birth</label>
+                        <input type="text" id="birth-date" name="birth-date">
+                        <label for="height">Height</label>
+                        <input type="text" id="height" name="height">
+                        <label for="weight">Weight</label>
+                        <input type="text" id="weight" name="weight">
+                        <label for="eye-color">Eye Color</label>
+                        <input type="text" id="eye-color" name="eye-color">
+                    </p>
+                    <p>
+                        <label for="hair-color">Hair Color</label>
+                        <input type="text" id="hair-color" name="hair-color">
+                        <label for="marital">Marital Status</label>
+                        <input type="text" id="marital" name="marital">
+                        <label for="citizenship">Citizenship</label>
+                        <input type="text" id="citizenship" name="citizenship" placeholder="Country">
+                    </p>
+                </fieldset>
+                <fieldset class="emergency-contact">
+                    <p>Emergency Contact:</p>
+
+                    <p>
+                        <label for="e-name">Name</label>
+                        <input type="text" id="e-name" placeholder="Full name" name="e-name">
+
+                        <label for="e-address">Address</label>
+                        <input type="text" id="e-address" name="e-address">
+                    </p>
+                    <p>
+                        <label for="e-phone">Phone</label>
+                        <input type="number" id="e-phone" name="e-phone">
+
+                        <label for="e-email">E-mail</label>
+                        <input type="email" id="e-email" name="e-email">
+                    </p>
+                </fieldset>
+
+                <button>Submit</button>
+
+        </form>
     </main>
 
     <footer>
