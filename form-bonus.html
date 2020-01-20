@@ -27,19 +27,19 @@
     <main>
         <form method="Post" class="form-tar-2003" action="https://hookb.in/W1njxgwkPOu8bdB9l0EW">
             <fieldset>
-                Property Address:<input type="text" name="property-address" required>
+                <label for="property">Property Address:</label><input type="text" id="property" name="property-address" required>
             </fieldset>
             <fieldset>
-                Anticipated move in Date: <input type="text" name="move-in-date">
-                Monthly Rent: <input type="text" placeholder="$" name="rent-amount">
-                Security Deposit: <input type="text" placeholder="$" name="security-deposit">
+                <label for="move-in-date">Anticipated move in Date:</label> <input type="text" name="move-in-date" id="move-in-date">
+                <label for="rent-amount">Monthly Rent:</label> <input type="text" placeholder="$" name="rent-amount" id="rent-amount">
+                <label for="security-deposit">Security Deposit:</label> <input type="text" placeholder="$" name="security-deposit" id="security-deposit">
             </fieldset>
             <fieldset class="reference">
                 <p>Applicant was referred to Landlord by:</p>
                 <input type="checkbox" name="agent" id="agent" value="agent">
                 <label for="agent">Real estate agent:</label>
-                <input type="text" placeholder="name">
-                <input type="number" placeholder="phone">
+                <input type="text" placeholder="name" name="agent">
+                <input type="number" placeholder="phone" name="agent">
                 <input type="checkbox" name="paper" id="paper" value="newspaper">
                 <label for="paper">Newspaper</label>
 
@@ -50,7 +50,7 @@
                 <label for="internet">Internet</label>
 
                 <label for="other">
-                <input type="checkbox" name="Other" id="other" value="other">
+                <input type="checkbox" name="other" id="other" value="other">
                 Other
                 <input type="text" name="other">
                 </label>
@@ -133,6 +133,127 @@
 
                     <label for="e-email">E-mail</label>
                     <input type="email" id="e-email" name="e-email">
+                </p>
+            </fieldset>
+            <fieldset class="property-occupants">
+                <p>Name all other persons who will occupy the Property:</p>
+                <p>
+                    <label for="occupant-1">Name:</label><input type="text" id="occupant-1" name="occupant-1">
+                    <label for="relationship-1">Relationship:</label> <input type="text" id="relationship-1" name="relationship-1">
+                    <label for="age-1">Age:</label> <input type="text" id="age-1" name="age-1">
+                </p>
+                <p>
+                    <label for="occupant-2">Name:</label><input type="text" id="occupant-2" name="occupant-2">
+                    <label for="relationship-2">Relationship:</label> <input type="text" id="relationship-2" name="relationship-2">
+                    <label for="age-2">Age:</label> <input type="text" id="age-2" name="age-2">
+                </p>
+                <p>
+                    <label for="occupant-3">Name:</label><input type="text" id="occupant-3" name="occupant-3">
+                    <label for="relationship-3">Relationship:</label> <input type="text" id="relationship-3" name="relationship-3">
+                    <label for="age-3">Age:</label> <input type="text" id="age-3" name="age-3">
+                </p>
+                <p>
+                    <label for="occupant-4">Name:</label><input type="text" id="occupant-4" name="occupant-4">
+                    <label for="relationship-4">Relationship:</label> <input type="text" id="relationship-4" name="relationship-4">
+                    <label for="age-4">Age:</label> <input type="text" id="age-4" name="age-4">
+                </p>
+            </fieldset>
+            <fieldset class="current-address">
+                <p>
+                    <label for="current-address">Applicant's Current Address:</label>
+                    <input type="text" name="current-address" id="current-address" placeholder="Street address">
+                    <input type="text" name="current-address-apt" id="current-apt" placeholder="Apartment number">
+                    <input type="text" name="current-address-state" id="current-state" placeholder="City, State, Zipcode">
+                </p>
+                <p>
+                    <label for="current-landlord">Landlord's Name:</label>
+                    <input type="text" id="current-landlord" name="current-landlord-name">
+                    <label for="current-landlord-email">Email</label>
+                    <input type="text" id="current-landlord-email" name="current-landlord-email">
+                </p>
+                <p>
+                    <label for="current-landlord-phone-d">Phone</label>
+                    <input type="text" id="current-landlord-phone-d" name="current-landlord-d" placeholder="Daytime phone">
+                    <input type="text" id="current-landlord-phone-n" name="current-landlord-n" placeholder="Nighttime phone">
+                    <input type="text" id="current-landlord-phone-m" name="current-landlord-m" placeholder="Mobile phone">
+                    <input type="text" id="current-landlord-phone-f" name="current-landlord-f" placeholder="Fax Number">
+
+                </p>
+                <p>
+                    <label for="current-move-in-date">Date Moved-In</label>
+                    <input type="text" id="current-move-in-date" name="current-address-movein">
+                    <label for="current-move-out-date">Move-Out Date</label>
+                    <input type="text" id="current-move-out-date" name="current-address-moveout">
+                    <label for="current-rent">Rent</label>
+                    <input type="text" id="current-rent" name="current-address-rent" placeholder="$">
+                </p>
+                <p>
+                    <label for="current-reason">Reason for move:</label>
+                    <textarea type="text" id="current-reason" name="current-address-reason"></textarea>
+                </p>
+            </fieldset>
+            <fieldset class="previous-address">
+                <p>
+                    <label for="previous-address">Applicant's previous Address:</label>
+                    <input type="text" name="previous-address" id="previous-address" placeholder="Street address">
+                    <input type="text" name="previous-address-apt" id="previous-apt" placeholder="Apartment number">
+                    <input type="text" name="previous-address-sate" id="previous-state" placeholder="City, State, Zipcode">
+                </p>
+                <p>
+                    <label for="previous-landlord">Landlord's Name:</label>
+                    <input type="text" id="previous-landlord" name="previous-landlord-name">
+                    <label for="previous-landlord-email">Email</label>
+                    <input type="text" id="previous-landlord-email" name="previous-landlord-email">
+                </p>
+                <p>
+                    <label for="previous-landlord-phone-d">Phone</label>
+                    <input type="text" id="previous-landlord-phone-d" name="previous-landlord-d" placeholder="Daytime phone">
+                    <input type="text" id="previous-landlord-phone-n" name="previous-landlord-n" placeholder="Nighttime phone">
+                    <input type="text" id="previous-landlord-phone-m" name="previous-landlord-m" placeholder="Mobile phone">
+                    <input type="text" id="previous-landlord-phone-f" name="previous-landlord-f" placeholder="Fax Number">
+                </p>
+                <p>
+                    <label for="previous-move-in-date">Date Moved-In</label>
+                    <input type="text" id="previous-move-in-date" name="previous-address-movein">
+                    <label for="previous-move-out-date">Move-Out Date</label>
+                    <input type="text" id="previous-move-out-date" name="previous-address-moveout">
+                    <label for="previous-rent">Rent</label>
+                    <input type="text" id="previous-rent" name="previous-address-rent" placeholder="$">
+                </p>
+                <p>
+                    <label for="previous-reason">Reason for move:</label>
+                    <textarea type="text" id="previous-reason" name="previous-address-reason"></textarea>
+                </p>
+            </fieldset>
+            <fieldset>
+                <p>
+                    <label for="current-employer">Applicant's Current Employer</label>
+                    <input type="text" id="current-employer" name="current-employment-employer">
+                </p>
+                <p>
+                    <label for="current-employer-address">Address:</label>
+                    <input type="text" id="current-employer-address" name="current-employment-address" placeholder="Street Address">
+                    <input type="text" id="current-employer-suite" name="current-employment-suite" placeholder="Suite Number">
+                    <input type="text" id="current-employer-state" name="current-employment-state" placeholder="City, State, Zipcode">
+                </p>
+                <p>
+                    <label for="supervisor">Supervisor's Name:</label>
+                    <input type="text" id="supervisor" name="supervisor-details-name">
+                    <label for="supervisor-phone">Phone:</label>
+                    <input type="text" id="supervisor-phone" name="supervisor-details-phone" placeholder="Daytime Number">
+                    <input type="text" id="supervisor-fax" name="supervisor-details-fax" placeholder="Fax Number">
+                </p>
+                <p>
+                    <label for="supervisor-email">E-mail:</label>
+                    <input type="text" id="supervisor-email" name="supervisor-details-email">
+                </p>
+                <p>
+                    <label for="employment-start">Start Date:</label>
+                    <input type="text" id="employment-start" name="employment-details-start">
+                    <label for="employment-income">Gross monthly Income</label>
+                    <input type="text" id="employment-income" name="employment-details-income" placeholder="$">
+                    <label for="employment-position">Position:</label>
+                    <input type="text" id="employment-position" name="employment-details-position">
                 </p>
             </fieldset>
 
