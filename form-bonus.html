@@ -8,11 +8,10 @@
     <header>
         <section class="received">
             <form method="Post" class="received-on" action="https://hookb.in/W1njxgwkPOu8bdB9l0EW">
-                <p>Received on
-                <input type="text" name="date" placeholder="date" required>
-                at
-                <input type="text" name="time" placeholder="time" required>
-                </p>
+                <label for="received-date">Received on</label>
+                <input type="text" name="date" id="received-date" placeholder="DD-MM-YYYY" required autocomplete="date">
+                <label for="received-time">at</label>
+                <input type="text" name="time" id="received-time" placeholder="##:##" required autocomplete="time">
             </form>
         </section>
         <section class="form-header">
@@ -27,7 +26,7 @@
     <main>
         <form method="Post" class="form-tar-2003" action="https://hookb.in/W1njxgwkPOu8bdB9l0EW">
             <fieldset>
-                <label for="property">Property Address:</label><input type="text" id="property" name="property-address" required>
+                <label for="property">Property Address:</label><input type="text" id="property" name="property-address" required autocomplete="street-address">
             </fieldset>
             <fieldset>
                 <label for="move-in-date">Anticipated move in Date:</label> <input type="text" name="move-in-date" id="move-in-date">
@@ -38,8 +37,8 @@
                 <p>Applicant was referred to Landlord by:</p>
                 <input type="checkbox" name="agent" id="agent" value="agent">
                 <label for="agent">Real estate agent:</label>
-                <input type="text" placeholder="name" name="agent">
-                <input type="number" placeholder="phone" name="agent">
+                <input type="text" placeholder="name" name="agent-name" autocomplete="fname">
+                <input type="tel" placeholder="phone" name="agent-phone" autocomplete="phone">
                 <input type="checkbox" name="paper" id="paper" value="newspaper">
                 <label for="paper">Newspaper</label>
 
@@ -52,14 +51,14 @@
                 <label for="other">
                 <input type="checkbox" name="other" id="other" value="other">
                 Other
-                <input type="text" name="other">
+                <input type="text" name="other-input">
                 </label>
             </fieldset>
             <fieldset class="applicant-name">
-                <p>Applicants name
-                    <input type="text" placeholder="first" name="first-name">
-                    <input type="text" placeholder="middle" name="middle-name">
-                    <input type="text" placeholder="last" name="last-name">
+                <p><label for="applicant-first">Applicants name</label>
+                    <input type="text" placeholder="first" name="first-name" id="applicant-first" required autocomplete="fname">
+                    <input type="text" placeholder="middle" name="middle-name" id="applicant-middle" required autocomplete="mname">
+                    <input type="text" placeholder="last" name="last-name" id="applicant-last" required autocomplete="lname">
                 </p>
             </fieldset>
             <fieldset class="co-applicant">
@@ -80,9 +79,9 @@
             <fieldset class="personal-info">
                 <p>
                     <label for="email">E-mail</label>
-                    <input type="text" id="email" name="email">
+                    <input type="text" id="email" name="email" autocomplete="email">
                     <label for="h-phone">Home Phone</label>
-                    <input type="text" id="h-phone" name="h-phone">
+                    <input type="tel" id="h-phone" name="h-phone" autocomplete="phone">
                 </p>
                 <p>
                     <label for="w-phone">Work Phone</label>
