@@ -1,34 +1,51 @@
 *{
+    /*----Required----*/
     box-sizing: border-box;
-    margin: 0 auto;
     padding: 0;
+    margin: 0;
 }
-
 
 .nav-container,
 .nav-left-links,
 .nav-right-links,
 .nav-center-links{
     background: grey;
-    width: 100%;
 
+    /*----Activate Flex ----*/
     display: flex;
-    flex-direction: row;
+    /*----Utilize Flex (Give the container items space between (Push the left and right flex containers to the edge of viewport)) ----*/
     justify-content: space-between;
+    /*----Utilize Flex (Align the flex items to the main-axis (vertical) ----*/
     align-items: center;
 }
 .nav-item{
     list-style: none;
-    flex: 0 0 auto;
-}
 
-a.nav-link, a.nav-link img{
-    /*margin: 5px;*/
-    /*padding: 10px;*/
+}
+.nav-center-links a{
+    /*----Required----*/
+    font-size: 3em;
+    /*----Required----*/
+    padding: .2em 0;
+    /*----Required----*/
+    font-family: 'Montserrat', sans-serif;
+    /*----Required (Not fully understood "what it do?")----*/
+    /*position: absolute;*/
+    /*width: 100%;*/
+    /*display: flex;*/
+}
+a{
+    /*----Required----*/
+    font-family: 'Work Sans', sans-serif;
+    /*----Required (Note from instructor: cant be removed)----*/
+    /*display: inline-block;*/
+    /*----Required----*/
     text-decoration: none;
     color: black;
-    display: inline-block;
+    padding: 10px;
 }
+
 a:hover{
+    /*----Required----*/
     color: cadetblue;
 }
