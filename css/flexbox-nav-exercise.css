@@ -27,4 +27,8 @@ a.nav-link, a.nav-link img{
     /*padding: 10px;*/
     text-decoration: none;
     color: black;
+    display: inline-block;
+}
+a:hover{
+    color: cadetblue;
 }
