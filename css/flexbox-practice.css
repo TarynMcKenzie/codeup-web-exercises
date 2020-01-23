@@ -1,0 +1,167 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    /*margin: 0;*/
+    font-family: Roboto;
+    background: orange;
+    min-height: 100vh; /* to keep footer at the bottom of the page */
+}
+nav {
+    background: #333333;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* made unordered list a flex container */
+}
+nav a {
+    text-decoration: none;
+    color: white;
+    font-family: Verdana;
+    display: inline-block; /* inline-block to increase clickable area beyond the text */
+    padding: 1em; /* increases clickable area of anchor tags on all sides by 1em */
+}
+nav a:hover {
+    background: black;
+}
+nav ul li:nth-child(4) {
+    /*
+        this allows the last flex item to be right justified
+        by filling remaining space to the left of the flex item with margin
+    */
+    margin-left: auto;
+}
+h1, h2, h3 {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+h3 {
+    color: grey;
+}
+hr {
+    border-top: 1px solid whitesmoke;
+    width: 90px;
+}
+.card {
+    margin: .5em;
+    border-radius: 2px;
+    background: white;
+    width: 250px;
+    height: 350px;
+    /* the following declarations make the card a flex container and justify and align its flex items */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+img {
+    border-radius: 120px;
+    width: 120px;
+}
+i {
+    color: grey;
+}
+.icons {
+    /* the following declarations control the spacing between the social media icons */
+    width: 160px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.text-section {
+    position: relative;
+    bottom: 1.5em;
+}
+.icons i {
+    font-size: 2.2em;
+}
+
+footer {
+    background: black;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.container {
+    min-width: 768px;
+    width: 95%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+h1 {
+    font-size: 2em;
+}
+footer h1 {
+    margin: 0;
+    font-weight: bolder;
+}
+h5 {
+    color: white;
+    font-weight: 200;
+    text-align: center;
+}
+footer a {
+    color: white;
+    text-decoration: none;
+}
+footer .icon-wrapper:hover,
+footer .top-footer a:hover {
+    color: black;
+    background: white;
+}
+footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+footer .container {
+    padding: 4em 0;
+    height: 30em;
+}
+.icon-wrapper {
+    border: 2px solid grey;
+    border-radius: 2.4em;
+    height: 2.4em;
+    width: 2.4em;
+}
+footer .top-footer a {
+    text-transform: uppercase;
+    font-weight: 200;
+}
+footer .bottom-footer a {
+    margin: .3em;
+}
+.line {
+    width: 100%;
+    height: 1px;
+    background: grey;
+}
+
+/* mobile devices */
+@media all and (max-width: 768px) {
+    body {
+        display: flex;
+        justify-content: flex-end;
+    }
+    nav {
+        display: inline-block;
+        height: 100vh;
+        position: fixed;
+        left: 0;
+    }
+    nav ul {
+        flex-direction: column;
+        width: 15em;
+    }
+    main {
+        width: calc(100% - 15em);
+    }
+    nav a {
+        width: 100%;
+    }
+    nav ul li:nth-child(4) {
+        margin-left: 0;
+    }
+}
