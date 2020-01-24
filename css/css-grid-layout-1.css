@@ -1,0 +1,44 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-size: 20px;
+    margin: 0;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns:  20% 1fr 15%;
+    grid-template-rows:  10% 1fr 1fr 10%;
+    height: 100vh;
+
+    grid-template-areas:
+    "header header header"
+    "nav article ads"
+    "nav article ads"
+    "nav footer footer";
+}
+
+header{
+    grid-area: header;
+    background: indianred;
+    padding: 1em;
+}
+nav{
+    grid-area: nav;
+    background: indianred;
+    padding: 1em;
+}
+article{
+    grid-area: article;
+    background: indianred;
+    padding: 1em;
+}
+aside{
+    grid-area: ads;
+    background: indianred;
+    padding: 1em;
+}
+footer{
+    grid-area: footer;
+    background: indianred;
+    padding: 1em;
+}
