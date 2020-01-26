@@ -1,0 +1,167 @@
+*{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin: 0;
+}
+
+/*--------------Make the nav bar match the example--------------*/
+.nav-container{
+    background: #000;
+    padding: .9em 0;
+    width: 100%;
+    position: static;
+    list-style: none;
+
+    /*----Activate Flex----*/
+    display: flex;
+
+    /*----Use Flex (Get items in a row)----*/
+    flex-direction: row;
+    /*----Use Flex (Get items centered on the main axis)----*/
+    align-items: center;
+}
+.nav-container a{
+    color: #FFF;
+    text-decoration: none;
+    font-size: 1.5em;
+    padding: .6em 1em;
+}
+.nav-container a:hover{
+    background: #4c4c4c;
+}
+
+/*--------------Make the containers follow a grid that matches the example--------------*/
+main{
+    display: flex;
+}
+article{
+    margin: 50px 20px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 30%;
+    grid-template-rows: repeat(3,1fr);
+    grid-row-gap: 80px;
+    grid-template-areas:
+            "article ad-one"
+            "article ad-two"
+            "article ad-three"
+            "pages .";
+
+    grid-area: article;
+}
+
+nav{
+    grid-area: pages;
+}
+div.ad-container-1{
+    grid-area: ad-one;
+}
+div.ad-container-2{
+    grid-area: ad-two;
+}
+div.ad-container-3{
+    grid-area: ad-three;
+}
+
+
+/*--------------Make aside look like the example--------------*/
+aside{
+    width: 19%;
+}
+#fancy-header{
+    font-size: 1.5em;
+    padding: .7em 0;
+    font-weight: normal;
+}
+.aside-container{
+    background: lightgrey;
+    padding: 0;
+    /*----Make the aside span the window height----*/
+    height: 100%;
+
+    /*----Activate Flex for nav items----*/
+    display: flex;
+    /*----Use Flex (Get items in a row)----*/
+    flex-direction: column;
+}
+.aside-container a{
+    color: #000;
+    list-style: none;
+    text-decoration: none;
+}
+.aside-container li{
+    padding: .7em 1.5em;
+}
+.aside-container li:hover{
+    background: gold;
+}
+
+/*--------------Make article text look like the example--------------*/
+h2{
+    color: black;
+    font-size: 3em;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+p{
+    font-size: 1.2em;
+    font-weight: lighter;
+}
+
+/*--------------Make ADs look like the example--------------*/
+.ad-top{
+    border: 1px solid darkgrey;
+    padding: 2em 5em;
+    margin: 0 10px;
+    text-align: center;
+}
+.ad-bottom{
+    border: 1px solid darkgrey;
+    padding: 5em 2em;
+    margin: 20px 10px;
+    text-align: center;
+}
+
+/*--------------Make pagination look like the example--------------*/
+.pages-container{
+    list-style: none;
+
+    /*----Activate Flex----*/
+    display: flex;
+
+    /*----Use Flex (Get items centered on the cross axis)----*/
+    justify-content: center;
+}
+.pages-container a{
+    text-decoration: none;
+    color: #000;
+    padding: 15px 20px;
+}
+.pages-container a:hover{
+    background: #000;
+    color: #fff;
+}
+
+/*--------------Make footer look like the example--------------*/
+
+footer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 280px;
+}
+
+#footer-header{
+    background: #848487;
+    color: #fff;
+    font-size: 2em;
+    font-weight: normal;
+}
+#credit{
+    background: #333333;
+    color: #fff;
+    font-size: 1em;
+}
+#credit a{
+    text-decoration: none;
+    color: #fff;
+}
