@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap Media Query</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--CDN linking for Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!--CSS stylesheet-->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!--CDN linking for FontAwesome-->
+    <script src="https://kit.fontawesome.com/bed02793ca.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!--------------------------Bootstrap Top Navigation-------------------------->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Pizza world</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Order online <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Menu</a>
+                </li>
+
+                <!-------Bootstrap search component------->
+                <div class="navbar navbar-light bg-light">
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Zip code" aria-label="Search">
+                        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search store near you</button>
+                    </form>
+                </div>
+
+            </ul>
+
+            <span class="navbar-text">
+                <i class="fas fa-user-alt m-2"></i>Sign up
+            </span>
+        </div>
+    </nav>
+
+    <!--------------------------Bootstrap Main Container-------------------------->
+    <main class="container-fluid">
+
+        <!--Bootstrap Jumbotron-->
+        <div class="jumbotron jumbotron-fluid" id="main-jumbotron">
+            <div class="container">
+                <h1 class="display-4 text-center font-weight-normal">Welcome to Pizza World!</h1>
+            </div>
+        </div>
+
+        <!--------Bootstrap Tab Javascript function-------->
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-crust-tab" data-toggle="tab" href="#nav-crust-tab" role="tab" aria-controls="nav-crust" aria-selected="true"><span class="badge badge-pill badge-secondary">1</span>Size and crust</a>
+                <a class="nav-item nav-link" id="nav-cheese-tab" data-toggle="tab" href="#nav-cheese-tab" role="tab" aria-controls="nav-cheese" aria-selected="false"><span class="badge badge-pill badge-secondary">2</span>Cheese and sauce</a>
+                <a class="nav-item nav-link" id="nav-topping-tab" data-toggle="tab" href="#nav-topping-tab" role="tab" aria-controls="nav-topping" aria-selected="false"><span class="badge badge-pill badge-secondary">3</span>Toppings</a>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+
+
+            <!--------Bootstrap CHEESE AND SAUCE tab------->
+            <div class="tab-pane fade show active" id="nav-crust" role="tabpanel" aria-labelledby="nav-crust-tab">
+
+                <!-------Bootstrap SIZE AND CRUST mother card-------->
+                <div class="card text-left" id="nav-crust-card">
+                    <div class="card-header bg-primary text-white">
+                        Choose size and crust
+                    </div>
+
+                    <div class="card-body">
+
+                        <!--------Bootstrap SIZE AND CRUST first child card------->
+                        <div class="card w-100" style="width: 18rem;">
+                            <div class="card-header">
+                                Hand Tossed
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
+                                <li class="list-group-item">
+
+                                    <!-------Bootstrap radio option 1-------->
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="radio-garlic-small" id="radio-garlic-small" value="option1">
+                                        <label class="form-check-label" for="radio-garlic-small">
+                                            Small (10")
+                                        </label>
+                                    </div>
+
+                                </li>
+
+                                <li class="list-group-item">
+
+                                    <!--------Bootstrap radio option 2-------->
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="radio-garlic-medium" id="radio-garlic-medium" value="option1">
+                                        <label class="form-check-label" for="radio-garlic-medium">
+                                            Medium (12")
+                                        </label>
+                                    </div>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <!--------Bootstrap SIZE AND CRUST second child card-------->
+                        <div class="card w-100" style="width: 18rem;">
+                            <div class="card-header">
+                                Crispy Thin
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Thin enough for optimum crispy to crunch ratio.</li>
+                                <li class="list-group-item">
+
+                                    <!--------Bootstrap radio option 1-------->
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="radio-thin-medium" id="radio-thin-medium" value="option1">
+                                        <label class="form-check-label" for="radio-thin-medium">
+                                            Medium (12")
+                                        </label>
+                                    </div>
+
+                                </li>
+
+                                <li class="list-group-item">
+
+                                    <!-------Bootstrap radio option 2------->
+                                    <div class="form-check ">
+                                        <input class="form-check-input" type="radio" name="radio-thin-large" id="radio-thin-large" value="option1">
+                                        <label class="form-check-label" for="radio-thin-large">
+                                            Large (14")
+                                        </label>
+                                    </div>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                    <div class="card-footer text-muted">
+                        <a href="#" class="btn btn-primary">Next Step ></a>
+                    </div>
+
+            </div>
+
+
+            <!-------Bootstrap CHEESE AND SAUCE tab-------->
+            <div class="tab-pane fade" id="nav-cheese" role="tabpanel" aria-labelledby="nav-cheese-tab">
+
+                <!--------Bootstrap CHEESE AND SAUCE mother card------->
+                <div class="card text-left" id="nav-cheese-card">
+                    <div class="card-header bg-primary text-white">
+                        Choose size and crust
+                    </div>
+                    <div class="card-body">
+
+                    ...
+                    </div>
+
+                    </div>
+                    <div class="card-footer text-muted">
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+
+            </div>
+
+
+            <!--------Bootstrap TOPPINGS tab------->
+            <div class="tab-pane fade" id="nav-topping" role="tabpanel" aria-labelledby="nav-topping-tab">
+
+                <!-------Bootstrap TOPPINGS mother card------->
+                <div class="card text-left" id="nav-topping-card">
+                    <div class="card-header bg-primary text-white">
+                        Choose size and crust
+                    </div>
+                    <div class="card-body">
+
+                    ...
+                    </div>
+                    <div class="card-footer text-muted">
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,14 @@
+#main-jumbotron{
+    background-image: url("../img/sarah-shaffer-OY4BbUuNIeg-unsplash.jpg") ;
+    background-size: cover;
+    background-position: center;
+    height: 15vh;
+}
+
+#main-jumbotron h1{
+    background: lightgrey;
+    opacity: 0.6;
+    width: 100%;
+
+    color: #000;
+}
