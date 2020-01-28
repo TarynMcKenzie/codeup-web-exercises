@@ -32,13 +32,21 @@
 
 /*--------------Make the containers follow a grid that matches the example--------------*/
 main{
-    display: flex;
+    display: grid;
+    grid-template-columns: 16% 80%;
+    grid-template-rows: repeat(2,1fr);
+    grid-template-areas:
+            " aside article"
+            " aside article"
+            " aside foot";
+
 }
 
 article{
     margin: 40px 20px;
-    display: grid;
     width: 100%;
+
+    display: grid;
     grid-template-columns: 1fr 30%;
     grid-template-rows: repeat(3,1fr);
     grid-row-gap: 80px;
@@ -64,10 +72,18 @@ div.ad-container-3{
     grid-area: ad-three;
 }
 
+aside{
+    grid-area: aside;
+}
+footer {
+    grid-area: foot;
+
+}
+
 
 /*--------------Make aside look like the example--------------*/
 aside{
-    width: 19%;
+    width: 100%;
 }
 #fancy-header{
     font-size: 1.5em;
@@ -81,7 +97,7 @@ aside{
     background: lightgrey;
     padding: 0;
     /*----Make the aside span the window height----*/
-    height: 115.85%;
+    height: 116.1%;
 
     /*----Activate Flex for nav items----*/
     display: flex;
@@ -108,24 +124,24 @@ h2{
     font-weight: normal;
     margin: 10px 0;
 }
-p{
+article p{
     font-size: 1.2em;
     font-weight: normal;
     line-height: 30px;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 /*--------------Make ADs look like the example--------------*/
 .ad-top{
     border: 1px solid darkgrey;
-    padding: 2.5em 5em;
-    margin: 0 10px;
+    padding: 30px 0px;
+    margin: 10px 0px;
     text-align: center;
 }
 .ad-bottom{
     border: 1px solid darkgrey;
-    padding: 5em 2em;
-    margin: 20px 10px;
+    padding: 80px 0px;
+    margin: 20px 0px;
     text-align: center;
 }
 
@@ -153,27 +169,23 @@ p{
 
 /*--------------Make footer look like the example--------------*/
 
-footer {
-    display: flex;
-    flex-direction: column;
-    margin-left: 279px;
-}
-
 #footer-header{
     background: #59595b;
     color: #fff;
     font-size: 1.5em;
     font-weight: normal;
-    padding: 60px 20px;
+    padding: 60px 310px;
 }
 #credit{
     background: #333333;
     color: #fff;
     font-size: 1.1em;
     font-weight: normal;
-    padding: 15px 20px;
-    margin: 0;
+    padding: 20px 310px;
 }
 #credit a{
     color: #fff;
+}
+#credit a:hover{
+    color: salmon;
 }

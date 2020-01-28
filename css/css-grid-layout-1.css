@@ -4,6 +4,7 @@
 body{
     font-size: 20px;
     margin: 0;
+
     display: grid;
     grid-gap: 10px;
     grid-template-columns:  20% 1fr 15%;

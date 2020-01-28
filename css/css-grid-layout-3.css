@@ -4,8 +4,8 @@
 body{
     font-size: 80px;
     color: white;
-
     margin: 0;
+
     display: grid;
     grid-gap: 10px;
     grid-template-columns:  25% repeat(3, 1fr);
