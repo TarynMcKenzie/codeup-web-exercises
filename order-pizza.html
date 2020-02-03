@@ -58,19 +58,33 @@
             </div>
         </div>
 
-        <!--------Bootstrap Tab Javascript function-------->
+        <!--------Bootstrap Tab Javascript function (The Tabs)-------->
         <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-crust-tab" data-toggle="tab" href="#nav-crust-tab" role="tab" aria-controls="nav-crust" aria-selected="true"><span class="badge badge-pill badge-secondary">1</span>Size and crust</a>
-                <a class="nav-item nav-link" id="nav-cheese-tab" data-toggle="tab" href="#nav-cheese-tab" role="tab" aria-controls="nav-cheese" aria-selected="false"><span class="badge badge-pill badge-secondary">2</span>Cheese and sauce</a>
-                <a class="nav-item nav-link" id="nav-topping-tab" data-toggle="tab" href="#nav-topping-tab" role="tab" aria-controls="nav-topping" aria-selected="false"><span class="badge badge-pill badge-secondary">3</span>Toppings</a>
-            </div>
+            <ul class="nav nav-tabs" id="nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="nav-crust-tab" data-toggle="tab" href="#nav-crust" role="tab" aria-controls="crust" aria-selected="true">
+                        <span class="badge badge-pill badge-secondary">1</span>Size and crust
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="nav-cheese-tab" data-toggle="tab" href="#nav-cheese" role="tab" aria-controls="cheese" aria-selected="false">
+                        <span class="badge badge-pill badge-secondary">2</span>Cheese and sauce
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="nav-topping-tab" data-toggle="tab" href="#nav-topping" role="tab" aria-controls="topping" aria-selected="false">
+                        <span class="badge badge-pill badge-secondary">3</span>Toppings
+                    </a>
+                </li>
+            </ul>
         </nav>
+
+        <!--------Bootstrap Tab Javascript function (The Content)-------->
         <div class="tab-content" id="nav-tabContent">
 
 
             <!--------Bootstrap CHEESE AND SAUCE tab------->
-            <div class="tab-pane fade show active" id="nav-crust" role="tabpanel" aria-labelledby="nav-crust-tab">
+            <div class="tab-pane fade show active" id="nav-crust" role="tabpanel" aria-labelledby="crust">
 
                 <!-------Bootstrap SIZE AND CRUST mother card-------->
                 <div class="card text-left" id="nav-crust-card">
@@ -81,7 +95,7 @@
                     <div class="card-body">
 
                         <!--------Bootstrap SIZE AND CRUST first child card------->
-                        <div class="card w-100" style="width: 18rem;">
+                        <div class="card">
                             <div class="card-header">
                                 Hand Tossed
                             </div>
@@ -115,7 +129,7 @@
                         </div>
 
                         <!--------Bootstrap SIZE AND CRUST second child card-------->
-                        <div class="card w-100" style="width: 18rem;">
+                        <div class="card">
                             <div class="card-header">
                                 Crispy Thin
                             </div>
@@ -160,7 +174,7 @@
 
 
             <!-------Bootstrap CHEESE AND SAUCE tab-------->
-            <div class="tab-pane fade" id="nav-cheese" role="tabpanel" aria-labelledby="nav-cheese-tab">
+            <div class="tab-pane fade" id="nav-cheese" role="tabpanel" aria-labelledby="cheese">
 
                 <!--------Bootstrap CHEESE AND SAUCE mother card------->
                 <div class="card text-left" id="nav-cheese-card">
@@ -169,7 +183,61 @@
                     </div>
                     <div class="card-body">
 
-                    ...
+                    <!-------Bootstrap CHEESE AND SAUCE (Cheese card)------->
+                        <div class="card">
+                            <div class="card-header">
+                               Cheese
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    How Much?
+
+                                    <!-------Bootstrap CHEESE Options------->
+                                    <select class="form-control form-control-lg">
+                                        <option>Light</option>
+                                        <option>Normal</option>
+                                        <option>Extra</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        <!-------Bootstrap CHEESE AND SAUCE (Sauce card)------->
+                        <div class="card">
+                            <div class="card-header">
+                                Sauce
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    What Type?
+
+                                    <!-------Bootstrap CHEESE Options------->
+                                    <select class="form-control form-control-lg">
+                                        <option>Tomato Sauce</option>
+                                        <option>White Sauce</option>
+                                        <option>No Sauce</option>
+                                    </select>
+                                </li>
+                            </ul>
+
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    how Much?
+
+                                    <!-------Bootstrap CHEESE Options------->
+                                    <select class="form-control form-control-lg">
+                                        <option>Light</option>
+                                        <option>Normal</option>
+                                        <option>Extra</option>
+                                    </select>
+                                </li>
+                            </ul>
+
+
+                        </div>
+
+
                     </div>
 
                     </div>
@@ -182,7 +250,7 @@
 
 
             <!--------Bootstrap TOPPINGS tab------->
-            <div class="tab-pane fade" id="nav-topping" role="tabpanel" aria-labelledby="nav-topping-tab">
+            <div class="tab-pane fade" id="nav-topping" role="tabpanel" aria-labelledby="topping">
 
                 <!-------Bootstrap TOPPINGS mother card------->
                 <div class="card text-left" id="nav-topping-card">
@@ -191,7 +259,20 @@
                     </div>
                     <div class="card-body">
 
-                    ...
+
+                        <!-------Bootstrap Mother card------->
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header">
+                                Featured
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Cras justo odio</li>
+                                <li class="list-group-item">Dapibus ac facilisis in</li>
+                                <li class="list-group-item">Vestibulum at eros</li>
+                            </ul>
+                        </div>
+
+
                     </div>
                     <div class="card-footer text-muted">
                         <a href="#" class="btn btn-primary">< Previous Step</a>
@@ -208,7 +289,7 @@
 
 
 
-    <!-- Optional JavaScript -->
+    <!-- Optional JavaScript for Bootstrap-->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -217,10 +298,17 @@
 
     <!-------Bootstrap Tab Javascript Function------->
     <script>
-        $(function () {
-            $('#nav-crust-tab li:last-child a').tab('show')
+        $('#nav-tab a').on('click', function (e) {
+
+            e.preventDefault();
+
+            $('#nav-tabs a[href="#nav-crust"]').tab('show'); // Select Crust tab by name
+            $('#nav-tabs a[href="#nav-cheese"]').tab('show'); // Select Cheese tab by name
+            $('#nav-tabs a[href="#nav-topping"]').tab('show'); // Select Topping tab by name
+
         })
     </script>
+
 
 </body>
 </html>
