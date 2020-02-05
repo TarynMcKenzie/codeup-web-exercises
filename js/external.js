@@ -43,23 +43,31 @@
 
 
 // TO DO: A student can be enrolled in a class only if the class is not full and the class schedule does not conflict with her current schedule.
-var studentClasses = Number(prompt("How many classes do you want to take?"));
-var studentScheduled = Number(prompt("How many classes are you currently taking?"));
-
-var classSeats = Number(prompt("How many seats are in the class?"));
-var classSeatsTaken = Number(prompt("How many seats are taken?"));
-
-var classAvailability = classSeatsTaken - classSeats;
-var studentAvailability = studentScheduled - studentClasses;
-
-if (classAvailability && studentAvailability === true){
-    alert("Success! You may register for this class.");
-    }else {
-    alert("Sorry, snooze you lose.");
-}
+// var studentClasses = Number(prompt("How many classes do you want to take?"));
+// var studentScheduled = Number(prompt("How many classes are you currently taking?"));
+//
+// var classSeats = Number(prompt("How many seats are in the class?"));
+// var classSeatsTaken = Number(prompt("How many seats are taken?"));
+//
+// var classAvailability = classSeatsTaken - classSeats;
+// var studentAvailability = studentScheduled - studentClasses;
+//
+// if (classAvailability && studentAvailability === true){
+//     alert("Success! You may register for this class.");
+//     } else {
+//     alert("Sorry, snooze you lose.");
+//     }
 
 
 
 
 // TO DO: A product offer can be applied only if a person buys more than 2 items, and the offer has not expired. Premium members do not need to buy a specific amount of products.
-var offerValid =
+var offerValid = prompt("Has the offer expired?");
+var shopperCart = Number(prompt("How many items are you buying?"));
+var premiumMember = prompt("Are you a Premium member?");
+
+if ((offerValid === "no") && (shopperCart >= 2) || (offerValid === "no") && (premiumMember === "yes")){
+    alert("Success! You get a discount");
+    } else {
+        alert("Oh No! You do not get a discount");
+    }
