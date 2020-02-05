@@ -10,7 +10,7 @@
 //  */
 
 function sayHello(name){
-    return "hello, " + name;
+    return "hello, " + name + "!";
 }
 
 // /**
@@ -81,7 +81,7 @@ console.log(isTwo(random));
 //  */
 
 function calculateTip(tip,bill){
-    var tipAmount = (bill * tip);
+    var tipAmount = bill * tip;
     // var total = tipAmount + bill;
 
     return  tipAmount.toFixed(2);
@@ -95,10 +95,10 @@ function calculateTip(tip,bill){
 //  * then display the dollar amount they should tip
 //  */
 
-// var billAmount = Number(prompt("What is your bill amount?"));
-// var tipAmount = Number(prompt("What would you like to tip?"));
-//
-// alert("According to our math, your tip amount is: $" + calculateTip(tipAmount, billAmount));
+var billAmount = Number(prompt("What is your bill amount?"));
+var tipAmount = Number(prompt("What would you like to tip?"));
+
+alert("According to our math, your tip amount is: $" + calculateTip(tipAmount, billAmount));
 
 
 
