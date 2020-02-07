@@ -16,33 +16,62 @@
  * Can you refactor your code to use functions?
  */
 
+
 // var verify = confirm("Would you like to enter a number?");
 //
 // if (verify === true){
 //     var number = parseInt(prompt("Enter a whole number"));
-//     var oddEven = number % 2 !== true;
+//     var isNum = !isNaN(number);
+//
+//     var odd = number % 2 !== 0;
+//     var even = number % 2 === 0;
 //     var total = number + 100;
-//     var positiveNegative = number > 0;
+//     var positive = number > 0;
+//     var negative = number < 0;
 //
+//     if (isNum) {
+//         if (odd) {
+//             alert("The number you have entered is odd");
+//         } else if (even) {
+//             alert("The number you have entered is even");
+//         } else {
+//             alert("Invalid. Please enter a number value");
+//         }
 //
-//     if (oddEven) {
-//         alert("The number you have entered is odd");
+//         if (total) {
+//             alert("Adding 100 to your number totals: " + total);
+//         }
+//
+//         if (negative) {
+//             alert("The number you have entered is negative");
+//         } else if (positive){
+//             alert("The number you have entered is positive");
+//         }else{
+//             alert("Invalid. Please enter a number value");
+//         }
 //     } else {
-//         alert("The number you have entered is even");
+//         alert("Invalid. Please enter a number value");
 //     }
-//
-//     if (total) {
-//         alert("Adding 100 to your number totals: " + total);
-//     }
-//
-//     if (positiveNegative) {
-//         alert("The number you have entered is negative");
-//     } else{
-//         alert("The number you have entered is positive");
-//     }
-//
 // }
 
+
+// Using functions
+//
+// function isNum (number){
+//     return !isNaN(number);
+// }
+//
+// function isEven(number){
+//     return number % 2 === 0;
+// }
+//
+// function add100 (number){
+//     return number + 100;
+// }
+//
+// function isPositive (number){
+//     return number > 0;
+// }
 /* ########################################################################## */
 
 /**
@@ -63,22 +92,22 @@
  * console.logging the function's return value
  */
 
-// var color = prompt("Please, enter a color");
+var color = prompt("Please, enter a color");
 
-// function analyzeColor(color){
-//
-//     if (color === "blue") {
-//         return alert("Yes, blue is a color.");
-//     } else if (color === "red"){
-//         return alert("Yes, red is a color.");
-//     } else if (color === "cyan"){
-//         return alert("Cyan is the color in my printer.");
-//     } else {
-//         return alert("I do not know that color.");
-//     }
-// }
+function analyzeColor(color){
 
-// analyzeColor(color);
+    if (color === "blue") {
+        return alert("Yes, blue is a color.");
+    } else if (color === "red"){
+        return alert("Yes, red is a color.");
+    } else if (color === "cyan"){
+        return alert("Cyan is the color in my printer.");
+    } else {
+        return alert("I do not know that color.");
+    }
+}
+
+analyzeColor(color);
 
 /* ########################################################################## */
 
@@ -166,42 +195,42 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  */
 
 
-// Generate a random number between 0 and 6
-var luckyNumber = Math.floor(Math.random() * 6);
-
-var total = prompt ("What is your bill total?");
-
-function calculateTotal(num, total){
-
-    var discount10 = total - (.1 * 100);
-    var discount25 = total - (.25 * 100);
-    var discount35 = total - (.35 * 100);
-    var discount50 = total - (.5 * 100);
-    var discountFree = total-total;
-    var result;
-
-    switch (num){
-        case 1:
-            result = alert("You received a 10% discount. Total: $" + discount10);
-            break;
-        case 2:
-            result = alert("You received a 25% discount. Total: $" + discount25);
-            break;
-        case 3:
-            result = alert("You received a 35% discount. Total: $" + discount35);
-            break;
-        case 4:
-            result = alert("You received a 50% discount. Total: $" + discount50);
-            break;
-        case 5:
-            result = alert("You're a lucky one. No payment necessary, my friend. It's all free. Total: $" + discountFree);
-            break;
-        default:
-            result = alert("Oh no! Your lucky number does not warrant a discount. Total: $" + total);
-            break;
-    }
-    return result;
-}
-
-calculateTotal(luckyNumber, 100);
+// // Generate a random number between 0 and 6
+// var luckyNumber = Math.floor(Math.random() * 6);
+//
+// var total = prompt ("What is your bill total?");
+//
+// function calculateTotal(num, total){
+//
+//     var discount10 = total - (.1 * 100);
+//     var discount25 = total - (.25 * 100);
+//     var discount35 = total - (.35 * 100);
+//     var discount50 = total - (.5 * 100);
+//     var discountFree = total-total;
+//     var result;
+//
+//     switch (num){
+//         case 1:
+//             result = alert("You received a 10% discount. Total: $" + discount10);
+//             break;
+//         case 2:
+//             result = alert("You received a 25% discount. Total: $" + discount25);
+//             break;
+//         case 3:
+//             result = alert("You received a 35% discount. Total: $" + discount35);
+//             break;
+//         case 4:
+//             result = alert("You received a 50% discount. Total: $" + discount50);
+//             break;
+//         case 5:
+//             result = alert("You're a lucky one. No payment necessary, my friend. It's all free. Total: $" + discountFree);
+//             break;
+//         default:
+//             result = alert("Oh no! Your lucky number does not warrant a discount. Total: $" + total);
+//             break;
+//     }
+//     return result;
+// }
+//
+// calculateTotal(luckyNumber, 100);
 
