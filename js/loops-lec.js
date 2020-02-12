@@ -102,7 +102,7 @@ console.log("Hello, from loops js");
 //TODO TOGETHER: Create a do-while loop that asks the user to confirm: "Would you like to exit?" What difference do you notice?
 
 // do {
-//     var userConfirm = confirm("Whould you like to exit?");
+//     var userConfirm = confirm("Would you like to exit?");
 //     console.log(userConfirm); // show the users input in the console
 // } while (!userConfirm);
 

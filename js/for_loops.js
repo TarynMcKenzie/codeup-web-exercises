@@ -44,7 +44,7 @@ console.log("Hello, from loops js");
 
 // for (var i = 0; i <= 10; i++){
 //
-//     var random = Math.floor(Math.random() * 200) + 20;
+//     var random = Math.floor(Math.random() * 180) + 20;
 //
 //     if (random % 2 === 0) {
 //         console.log(random + " is even");
@@ -79,6 +79,13 @@ console.log("Hello, from loops js");
 //
 //     }
 //     console.log(result);
+// }
+
+
+//OR
+
+// for (var i = 0; i < 10; i ++){
+//     console.log(i.toString().repeat(i)); //convert to a string to use .repeat, then repeat by the value of i
 // }
 
 
