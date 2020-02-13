@@ -18,11 +18,20 @@
     var cheeses = ["Brie", "Muenster", "Kraft American Singles", "Pepper Jack", "String", "Bleu de Gex"];
 
     // Quite the collection, if a bit incomplete. Where's cheddar?! Let's add cheddar to the end of our array.
+
     // TODO Together: Add Cheddar to the end of the 'cheeses' array
 
+    console.log(cheeses.push("Cheddar"));
 
     // TODO Together: Write a function to log each of the cheeses, using forEach
 
+    function logCheeses(array){
+        array.forEach(function(This){
+            console.log(This);
+        })
+    }
+
+    console.log(logCheeses(cheeses));
 
     // POP QUIZ: What the return of the function above?!
 
@@ -30,7 +39,10 @@
 
     // Well that's good and all, but let's also add Gouda to the front of the array.
 
+    console.log(cheeses.unshift("Gouda"));
+
     // The unshift method will allow me to add to the front of my array.
+
 
     /**
      * Audience: "But David, surely we are able to add more than one element at a time."
@@ -39,7 +51,7 @@
     // Yes, you're right. I can pass more than one argument through these two methods.
 
     // TODO: Pass more than one argument to these two methods
-
+    console.log(cheeses.unshift("Goat", "Monterrey Jack"));
 
     /**
      * Audience: "But David, just as you have showed us that we can create, can we not also
@@ -51,6 +63,8 @@
     // You know, I haven't even tried Red Windsor. Let's remove it.
 
     // TODO: Remove the Red Windsor from the array
+
+    console.log(cheeses.unshift("Goat", "Monterrey Jack"));
 
     // Unlike unshift, shift will remove the first element of an array.
 
