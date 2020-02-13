@@ -64,11 +64,11 @@
     var numArray= [1, 2, 3, 4, 5];
 
     function first (num){
-        return num[num.length - 5];
+        return num[0];
     }
 
     function second (num){
-        return num[num.length - 4];
+        return num[1];
     }
 
     function last (num){
