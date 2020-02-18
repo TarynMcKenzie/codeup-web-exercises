@@ -8,9 +8,7 @@
         getArea: function (radius) {  //object method creation
             // TODO: complete this method
             // hint: area = pi * radius^2
-            var area = radius * radius * Math.PI ;
-
-            return area; // TODO: return the proper value
+            return Math.PI * Math.pow(this.radius, 2); // TODO: return the proper value
         },
 
         logInfo: function (doRounding) { //object method creation
