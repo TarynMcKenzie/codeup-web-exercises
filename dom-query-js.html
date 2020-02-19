@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM: Query and Modify</title>
+</head>
+<body>
+
+    <h1 id="main-header">Hello World!</h1>
+    <ul>
+        <li data-dbid="1">Item 1</li>
+        <li data-dbid="2">Item 2</li>
+        <li data-dbid="3">Item 3</li>
+        <li data-dbid="4">Item 4</li>
+        <li data-dbid="5">Item 5</li>
+    </ul>
+    <h2 id="sub-header">Hello Again.</h2>
+    <p class="sub-paragraph">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat. Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+        culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+
+    <button id="btn-1">Change Main Header Text</button>
+    <button id="btn-2">Change Sub-header Color</button>
+    <button id="btn-3">Change the List Item's Color</button>
+    <button id="btn-4">Change the First Sub-paragraph Text</button>
+
+    <script>
+        (function() {
+            "use strict";
+            // TODO: Uncomment next line and get the main header element by id
+            // var mainHeader = document.getElementById("main-header");
+            //
+            // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+            // mainHeader.innerText = "Javascript is Cool";
+
+            // TODO: Uncomment the next line and get the sub header element by id
+            // var subHeader = document.getElementById("sub-header");
+
+            // TODO: Set the text color of subHeader to blue
+            // subHeader.style.color = "blue";
+
+            // TODO: Uncomment the next line and get all list items
+            // var listItems = document.getElementsByTagName("li"); //grab and group list items
+
+            // TODO: Set text color on every other list item to grey
+
+            // for (var i = 0; i < listItems.length; i++) { //loop through grouped list items
+            //     var dbId = listItems[i].getAttribute("data-dbid"); // get the item with the 'data-bid' attribute
+            //
+            //     if (dbId %2 === 0){ //select every other 'data-bid' item
+            //         listItems[i].style.color = "grey"; //turn item to grey
+            //     }
+            // }
+
+            // TODO: Set text color of li with dbid = 1 to blue
+            // listItems[0].style.color = "blue";
+
+            // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+            // var subParagraphs = document.getElementsByClassName("sub-paragraph")[0];
+
+
+            // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+            // subParagraphs.innerText = "Mission Accomplished!";
+
+
+            //TODO: Add 4 buttons to the page. Attach click event listeners to each of the buttons and have the handlers perform the modifications that were automatically taking place. For example, the first button should set inner html of mainHeader to "JavaScript is Cool".
+
+            //---BUTTON ONE---
+            var headerText = function () {
+                var mainHeader = document.getElementById("main-header");
+
+                if (mainHeader.innerText === "Hello World!") {
+                    mainHeader.innerText = "Javascript is Cool";
+                } else {
+                    mainHeader.innerText = "Hello World!";
+                }
+
+            };
+
+
+            var buttonOne = document.getElementById("btn-1");
+            buttonOne.addEventListener('click', headerText, false);
+
+
+            //---BUTTON TWO---
+            var subColor = function () {
+                var subHeader = document.getElementById("sub-header");
+
+                if (subHeader.style.color === "black") {
+                    subHeader.style.color = "blue";
+                } else {
+                    subHeader.style.color = "black";
+                }
+            };
+
+            var buttonTwo = document.getElementById("btn-2");
+            buttonTwo.addEventListener('click', subColor, false);
+
+            //---BUTTON THREE---
+            var itemColor = function () {
+
+                var listItems = document.getElementsByTagName("li"); //grab and group list items
+
+                for (var i = 0; i < listItems.length; i++) { //loop through grouped list items
+                    var dbId = listItems[i].getAttribute("data-dbid"); // get the item with the 'data-bid' attribute
+
+                    if (dbId %2 === 0){ //select every other 'data-bid' item
+                            listItems[i].style.color = "grey"; //turn item to grey
+                    }
+                }
+
+                listItems[0].style.color = "blue";
+
+            };
+
+            var buttonThree = document.getElementById("btn-3");
+
+            buttonThree.addEventListener('click', itemColor, false);
+
+            // buttonThree.addEventListener('dblclick', function () {
+            //     buttonThree.removeEventListener('click', itemColor, false);
+            // });
+
+
+            //---BUTTON FOUR---
+            var pText = function () {
+                var subParagraphs = document.getElementsByClassName("sub-paragraph")[0];
+
+                if (subParagraphs.innerText === "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.") {
+                    subParagraphs.innerText = "Mission Accomplished!";
+                } else {
+                    subParagraphs.innerText = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+                }
+            };
+
+            var buttonFour = document.getElementById("btn-4");
+            buttonFour.addEventListener('click', pText, false);
+
+        })();
+    </script>
+</body>
+</html>
