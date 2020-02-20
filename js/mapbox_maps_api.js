@@ -74,19 +74,19 @@ var favRestaurant = [
 
     {
         ll: [-98.306124, 29.519367],
-        image: 'img/laiSinh.png',
+        image: '<img class="thumbimg" src="img/laiSinh.jpg">',
         name: "<p>Lai Sinh - Vietnamese Cuisine</p>",
         address: "<p>9160 FM78, Converse, TX 78109</p>"
     },
     {
         ll: [-98.297809, 29.551270],
-        image: '<img> src="img/aloha.jpg"</img>',
+        image: '<img class="thumbimg" src="img/aloha.jpg">',
         name: "<p>Big Aloha's Ali'i Cove</p>",
         address: "<p>9160 FM78, Converse, TX 78109</p>"
     },
     {
         ll: [ -98.277852, 29.597811],
-        image: 'img/hebPlus',
+        image: '<img class="thumbimg" src="img/hebPlus.jpg">',
         name: "<p>HEB Plus</p>",
         address: "<p>9160 FM78, Converse, TX 78109</p>"
     }
