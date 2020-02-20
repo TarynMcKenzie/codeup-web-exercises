@@ -74,16 +74,19 @@ var favRestaurant = [
 
     {
         ll: [-98.306124, 29.519367],
+        image: 'img/laiSinh.png',
         name: "<p>Lai Sinh - Vietnamese Cuisine</p>",
         address: "<p>9160 FM78, Converse, TX 78109</p>"
     },
     {
         ll: [-98.297809, 29.551270],
+        image: '<img> src="img/aloha.jpg"</img>',
         name: "<p>Big Aloha's Ali'i Cove</p>",
         address: "<p>9160 FM78, Converse, TX 78109</p>"
     },
     {
         ll: [ -98.277852, 29.597811],
+        image: 'img/hebPlus',
         name: "<p>HEB Plus</p>",
         address: "<p>9160 FM78, Converse, TX 78109</p>"
     }
@@ -106,7 +109,7 @@ favRestaurant.forEach(function (restaurant) {
 
     //create a popup for place
     var markerPopup = new mapboxgl.Popup()
-        .setHTML(restaurant.name)
+        .setHTML(restaurant.image + restaurant.name + restaurant.address)
         .addTo(map);
 
     Marker.setPopup(markerPopup); //tie the marker to the popup
