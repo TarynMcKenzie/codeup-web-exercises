@@ -1,4 +1,5 @@
 .idea/*
 *.iml
 .DS_STORE
-ignore.js
+js/ignore.js
+js/keys.js
