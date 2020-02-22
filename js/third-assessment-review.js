@@ -8,20 +8,46 @@
 // 1. TODO What is an array in Javascript?
 //
 //     2. What is an object in Javascript?
+//          non numerically stored data
 //
 //     3. What is the difference between an array and an object?
+//          numerically ordered stored values
 //
 //     4. What is a property? A method?
+//          a property is the data item within an object
+//          a method is a function within an object
 //
 //     5. Why are loops useful when dealing with arrays?
+//          loops allow for iteration through the array to find specific data
 //
 //     6. What is an index?
+//          the index is the position of a value within an array (beginning at 0)
 //
 //     7. What is the difference between dot and bracket notation?
+//          bracket notation must be a String or a variable that references a String.
+//          dot notation must have a valid identifier. An identifier is a sequence of characters in the code that identifies a variable, function, or property.
 
 
 // 1.  TODO Write a function, `filterNumbers()` that takes in an array of mixed data types and returns an array of only the numbers type in ascending order.
 //     EXAMPLE: filterNumbers(["fred", true, 5, 3]) //[3, 5]
+
+function filterNumbers(array){ //function called filterNumbers that takes in an array
+    var bucket = []; //empty bucket
+
+    array.forEach(function(item){ //loop through the array
+
+        if (typeof item === "number") { // if the typeof the item the loop is currently on is a number data type
+
+            bucket.push(item); //push item into the bucket
+
+        }
+
+    });
+
+    return (bucket).sort((a, b) => a - b); //return the bucket sorted in ascending order
+}
+
+console.log(filterNumbers(["fred", true, 5, 3])); //[3, 5]
 
 
 
