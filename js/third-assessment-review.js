@@ -53,11 +53,12 @@ console.log(filterNumbers(["fred", true, 5, 3])); //[3, 5]
 
 // 2. TODO Write a function, `getOlder()` that takes in array of dog objects and increases the value of the age properties by 1.
 
-// Example Input: [
-//        { name: "Chompers", breed: "Pug", age: 7 },
-//        { name: "Freddy", breed: "Lab", age: 4 },
-//        { name: "Mr. Pig", breed: "Mastif", age: 10 }
-//      ];
+// Example
+input = [
+       { name: "Chompers", breed: "Pug", age: 7 },
+       { name: "Freddy", breed: "Lab", age: 4 },
+       { name: "Mr. Pig", breed: "Mastif", age: 10 }
+     ];
 
 
 // Example output: [
@@ -65,6 +66,21 @@ console.log(filterNumbers(["fred", true, 5, 3])); //[3, 5]
 //         { name: "Freddy", breed: "Lab", age: 5 },
 //         { name: "Mr. Pig", breed: "Mastif", age: 11 }
 //      ];
+
+
+function getOlder(array){ //function called getOlder that takes in an array
+
+    array.forEach(function(name){ // iterate through each item in the array
+
+        name.age = name.age += 1; // change the age property for each object to the current age value plus one
+
+    });
+
+    return array; // return the array with the new age value
+}
+
+console.log(getOlder(input));
+
 
 
 // 3. TODO Write a function, `washCars()` that takes in a array of car objects and sets the boolean properties of isDirty to false
