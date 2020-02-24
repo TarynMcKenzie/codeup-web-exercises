@@ -112,11 +112,11 @@ console.log(washCars(carInput));
 
 // 4. TODO Write a function, `adminList()` that takes in an array of user objects and returns a count of all admins based on the isAdmin property. Refactor to return an array of admin-only user emails. Refactor again to return an array of user objects that are admins.
 
-// Example Input: [
-//           { isAdmin: true, email: 'user1@email.com' },
-//           { isAdmin: true, email: 'user2@email.com' },
-//           { isAdmin: false, email: 'user3@email.com' }
-//        ];
+adminInput = [
+          { isAdmin: true, email: 'user1@email.com' },
+          { isAdmin: true, email: 'user2@email.com' },
+          { isAdmin: false, email: 'user3@email.com' }
+       ];
 //
 // Example Output (before refactor): 2
 //
@@ -131,25 +131,78 @@ console.log(washCars(carInput));
 //          ];
 
 
+// -----------Output # 1-----------
+// function adminList(array){ // function called adminList that takes in an array
+//
+//     var count = 0; // count begins at 0
+//
+//     array.forEach(function (item, instance){ //loop through the array and store the item and index values
+//
+//         if ( item.isAdmin === true){ //if the user is an admin
+//             count = instance + 1; //add 1 to the count
+//         }
+//     });
+//
+//     return count; // return the adjusted count
+//
+// }
+
+
+//-----------Output # 2-----------
+// function adminList(array){ // function called adminList that takes in an array
+//
+//     var adminEmail= []; // empty array for admin emails, bucket
+//
+//     array.forEach(function (item){ //loop through the array and store the item values
+//
+//         if ( item.isAdmin === true){ //if the user is an admin
+//             adminEmail.push(item.email); //add admin emails to the bucket
+//         }
+//     });
+//
+//     return adminEmail; // return the adjusted emails additions
+//
+// }
+
+
+//-----------Output # 3-----------
+function adminList(array){ // function called adminList that takes in an array
+
+    var adminEmail= []; // empty array for admin emails, bucket
+
+    array.forEach(function (item){ //loop through the array and store the item values
+
+        if ( item.isAdmin === true){ //if the user is an admin
+            adminEmail.push(item); //add admin object to the bucket
+        }
+    });
+
+    return adminEmail; // return the adjusted emails additions
+
+}
+
+console.log(adminList(adminInput));
+
+
+
 // 5. TODO Create a function, `makeSandwichObjects()` that takes in two array of strings, breads and fillings and returns an array of sandwichObjects that contain properties for bread and filling and values correspond to the same order of the two passed in arrays. Assume the two array inputs are the same length.
 
 // Example Input:
-//
-//          var breads  = [
-//              "white",
-//              "wheat",
-//              "rhy",
-//              "white"
-//          ];
 
-//          var fillings = [
-//              "pb&j",
-//              "ham",
-//              "cheese steak",
-//              "tuna"
-//          ];
+         var breads  = [
+             "white",
+             "wheat",
+             "rhy",
+             "white"
+         ];
 
-//          makeSandwichObjects(breads, fillings) // example call to the function
+         var fillings = [
+             "pb&j",
+             "ham",
+             "cheese steak",
+             "tuna"
+         ];
+
 
 // Example Output: [
 //              { bread: "white", filling: "pb&j" },
@@ -157,3 +210,27 @@ console.log(washCars(carInput));
 //              { bread: "rhy", filling: "cheese steak" },
 //              { bread: "white", filling: "tuna" }
 //          ];
+
+
+function makeSandwichObjects(bread, filling) { //function that takes in two arrays
+    var sandwichObjects;
+    var bchoice = {}; //object bucket
+    var fchoice = {}; //object bucket
+
+    bread.forEach(function(item){ //iterate through the breads array
+
+        bchoice = {bread: item}; //fill the empty object bucket with the key and value
+
+        filling.forEach(function(item){ //iterate through the fillings array
+
+            fchoice = {filling: item};//fill the empty object bucket with the key and value
+
+        });
+        console.log(sandwichObjects = [{...bchoice, ...fchoice}]); // merge the two objects
+
+    });
+        return sandwichObjects ; //show the newly create array of objects
+}
+
+
+console.log(makeSandwichObjects(breads, fillings)); // example call to the function
