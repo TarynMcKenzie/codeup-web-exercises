@@ -7,6 +7,15 @@
 <body>
 
     <!-- HTML DOCUMENT CONTENT GOES HERE -->
+    <div id="container">
+        <h1 class="container-content" id="codeup">HELOO THERE</h1>
+        <p class="container-content" id="introduction-content">This is my jQuery exercise file</p>
+        <ul class="container-content codeup" id="content-list">
+            <li class="container-content codeup" id="content-item-one">Introduction</li>
+            <li class="container-content " id="content-item-two">Selectors</li>
+        </ul>
+    </div>
+
 
     <!-- jQuery LOCAL LIBRARY LINK -->
     <script src="js/jquery-2.2.4.js"></script>
@@ -16,11 +25,26 @@
         "use strict";
         $(document).ready(function() {
 
-            //CODE BLOCK
-            $(document).ready();
-            $(document).ready(function() {
-                alert( 'The DOM has finished loading!' );
-            });
+            //CODE BLOCK (Exercise 1)
+            // $(document).ready(function() {
+            //     alert( 'The DOM has finished loading!' );
+            // });
+
+            //CODE BLOCK (Exercise 2.1)
+            // var header = $('#main-header').html();
+            //     alert(header);
+            //
+            // var paragraph = $('#introduction-content').html();
+            //     alert(paragraph);
+
+            //CODE BLOCK (Exercise 2.2)
+            // $(".codeup").css("border", "1px solid red");
+
+            //CODE BLOCK (Exercise 2.3)
+            // $("li").css("font-size", "20px");
+            // $("h1, p, li").css("background-color", "yellow");
+            // var mainHeader = $("h1").html();
+            //     alert(mainHeader);
 
         });
     </script>
