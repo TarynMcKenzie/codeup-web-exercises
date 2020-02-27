@@ -46,6 +46,23 @@
             // var mainHeader = $("h1").html();
             //     alert(mainHeader);
 
+            //CODE BLOCK (Exercise 3)
+            $("h1").click(function(){
+                $(this).css('background', '#bbb');
+            });
+
+            $('p').dblclick(function(e){
+                $(this).css("font-size", "18px");
+            });
+
+            $("li").hover(
+                function(){
+                $(this).css("color", "red")
+            },
+                function(){
+                $(this).css("color", "black")
+            });
+
         });
     </script>
 
