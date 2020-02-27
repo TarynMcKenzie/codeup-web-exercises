@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+
+    <!-- HTML DOCUMENT CONTENT GOES HERE -->
+    <h1>Konami Code</h1>
+
+    <!-- jQuery LOCAL LIBRARY LINK -->
+    <script src="js/jquery-2.2.4.js"></script>
+
+    <!-- jQuery SCRIPT -->
+    <script type="text/javascript">
+        "use strict";
+        $(document).ready(function() {
+
+            <!-- LESSON SCRIPT -->
+            $(document).keyup(function(event){
+                console.log(event.keyCode);
+
+                // ↑ ↑ ↓ ↓ ← → ← → b a enter
+                // 38
+                // 38
+                // 40
+                // 40
+                // 37
+                // 39
+                // 37
+                // 39
+                // 66
+                // 65
+                // 13
+            });
+
+        });
+    </script>
+</body>
+</html>

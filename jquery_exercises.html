@@ -13,6 +13,7 @@
         <ul class="container-content codeup" id="content-list">
             <li class="container-content codeup" id="content-item-one">Introduction</li>
             <li class="container-content " id="content-item-two">Selectors</li>
+            <li class="container-content " id="content-item-three">Mouse Events</li>
         </ul>
     </div>
 
@@ -51,8 +52,8 @@
                 $(this).css('background', '#bbb');
             });
 
-            $('p').dblclick(function(e){
-                $(this).css("font-size", "18px");
+            $('p').dblclick(function(){
+                $("p").css("font-size", "18px");
             });
 
             $("li").hover(
