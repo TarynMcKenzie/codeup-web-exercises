@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Attributes and CSS</title>
+    <title>(Attributes and CSS) && Traversing</title>
 
     <!-- CUSTOM CSS STYLING -->
     <style>
@@ -18,7 +18,11 @@
 <body>
 
     <!-- HTML DOCUMENT CONTENT GOES HERE -->
-    <h1>Attributes and CSS</h1>
+
+    <!----------ATTRIBUTES AND CSS EXERCISE---------->
+    <h1>(Attributes and CSS) && Traversing</h1>
+
+    <h3>National Parks FAQs</h3>
 
     <dl>
 
@@ -62,6 +66,37 @@
 
     </dl>
 
+    <!----------TRAVERSING EXERCISE---------->
+    <h3 >Abilene</h3>
+
+    <ul>
+        <li>Arches</li>
+        <li>Badlands</li>
+        <li>Carlsbad Caverns</li>
+        <li>Denali</li>
+        <li>Everglades</li>
+    </ul>
+
+    <h3>Big Bend</h3>
+
+    <ul>
+        <li>Abilene</li>
+        <li>Big Bend</li>
+        <li>Choke Canyon</li>
+        <li>Davis Mountains</li>
+        <li>Enchanted Rock</li>
+    </ul>
+
+    <h3>Choke Canyon</h3>
+
+    <ul>
+        <li>Abilene</li>
+        <li>Big Bend</li>
+        <li>Choke Canyon</li>
+        <li>Davis Mountains</li>
+        <li>Enchanted Rock</li>
+    </ul>
+
 
     <!-- jQuery LOCAL LIBRARY LINK -->
     <script src="js/jquery-2.2.4.js"></script>
@@ -73,6 +108,7 @@
 
             // TODO; Update the page with jQuery to add a link that toggles the class invisible on and off for all dd elements.
 
+            // ----------- EXERCISE #1 -----------
             $('.question').click(function() {
 
                 $(this).toggleClass('highlight');  // BONUS: Highlight dt elements
@@ -87,7 +123,10 @@
 
                 $('dd').toggleClass('invisible');
 
+
             });
+
+            // ----------- EXERCISE #2 -----------
 
         });// ready()
 
