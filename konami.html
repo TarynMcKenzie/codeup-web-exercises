@@ -167,14 +167,14 @@
         //get the score on the canvas
         function drawScore() {
             ctx.font = "16px Arial";
-            ctx.fillStyle = "#0095DD";
+            ctx.fillStyle = "#487a77";
             ctx.fillText("Score: "+score, 8, 20);
         }
 
         // Draw the life count on canvas
         function drawLives() {
             ctx.font = "16px Arial";
-            ctx.fillStyle = "#0095DD";
+            ctx.fillStyle = "#487a77";
             ctx.fillText("Lives: "+lives, canvas.width-65, 20);
         }
 
@@ -186,7 +186,7 @@
             ctx.beginPath();
             //dynamically create ball path
             ctx.arc(x, y, ballRadius, 0, Math.PI*2);
-            ctx.fillStyle = "#0095DD";
+            ctx.fillStyle = "#dd9328";
             ctx.fill();
             ctx.closePath();
 
@@ -196,7 +196,7 @@
         function drawPaddle() {
             ctx.beginPath();
             ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
-            ctx.fillStyle = "#0095DD";
+            ctx.fillStyle = "#757a74";
             ctx.fill();
             ctx.closePath();
         }
@@ -217,7 +217,7 @@
                         //draw bricks
                         ctx.beginPath();
                         ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                        ctx.fillStyle = "#0095DD";
+                        ctx.fillStyle = "#9c4445";
                         ctx.fill();
                         ctx.closePath();
                     }
