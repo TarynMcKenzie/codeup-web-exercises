@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>(Attributes and CSS) && Traversing</title>
+
+    <!-- CUSTOM CSS STYLING -->
+    <style>
+        *{
+            margin: 3%;
+        }
+        .invisible{
+            visibility: hidden;
+        }
+        .highlight {
+            background: yellow;
+        }
+        .pictureContainer{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+        .frame{
+            height: 300px;
+            width: 300px;
+            background-color: lightgrey;
+            border: 2px solid black;
+            background-size:cover;
+        }
+
+        .imageOne{
+            background-image: url("img/animal1.jpg");
+
+        }
+        .imageTwo{
+            background-image: url("img/animal2.jpg");
+
+        }
+        .imageThree{
+            background-image: url("img/animal3.jpg");
+
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- HTML DOCUMENT CONTENT GOES HERE -->
+
+    <!----------ATTRIBUTES AND CSS EXERCISE---------->
+    <h1>(Attributes and CSS) && Traversing</h1>
+
+    <h3>National Parks FAQs</h3>
+
+    <dl>
+
+        <dt class="question">Who is the director of the National Park Service?</dt>
+        <dd class="invisible">David Vela is the Deputy Director, exercising the authority of the Director of the National Park Service.<br>
+            Learn more about past directors of the National Park Service.</dd>
+
+        <dt class="question">What government agency oversees the National Park Service?</dt>
+        <dd class="invisible">The National Park Service is a bureau of the Department of the Interior. Directly overseeing its operation is the department's Assistant Secretary for Fish, Wildlife and Parks.</dd>
+
+        <dt class="question">How many employees are in the National Park Service?</dt>
+        <dd class="invisible">Permanent, temporary, and seasonal employees: More than 20,000 <br>
+            Volunteers: More than 315,000 in 2017</dd>
+
+        <dt class="question">How old is the National Park System?</dt>
+        <dd class="invisible">The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916. Yellowstone National Park was established by an act signed by President Ulysses S. Grant on March 1, 1872, as the nation's first national park. View the National Park System timeline.</dd>
+
+        <dt class="question">What is the origin of the National Park Service arrowhead?</dt>
+        <dd class="invisible">The arrowhead was authorized as the official National Park Service emblem by the Secretary of the Interior on July 20, 1951. The components of the arrowhead may have been inspired by key attributes of the National Park System, with the sequoia tree and bison representing vegetation and wildlife, the mountains and water representing scenic and recreational values, and the arrowhead itself representing historical and archeological values. Read more about the history of the arrowhead and other elements of NPS visual design.</dd>
+
+        <dt class="question">How many areas are in the National Park System?</dt>
+        <dd class="invisible">The system includes 419 areas covering more than 85 million acres in every state, the District of Columbia, American Samoa, Guam, Puerto Rico, and the Virgin Islands. These areas include national parks, monuments, battlefields, military parks, historical parks, historic sites, lakeshores, seashores, recreation areas, scenic rivers and trails, and the White House. Learn more about national park designations. See the complete list of National Park Service units and affiliated areas by type and number.</dd>
+
+        <dt class="question">What is the largest national park site? Smallest?</dt>
+        <dd class="invisible">Largest: Wrangell-St. Elias National Park and Preserve, AK, at 13.2 million acres <br>
+            Smallest: Thaddeus Kosciuszko National Memorial, PA, at 0.02 acres<br>
+            Current information on acreage for units across the National Park System is also available.</dd>
+
+        <dt class="question">How many people visit the national parks?</dt>
+        <dd class="invisible">Total recreation visitors to the national parks in 2018: 318,211,833.<br>
+            See more information about visitation.</dd>
+
+        <dt class="question">What is the National Park Service budget?</dt>
+        <dd class="invisible">Fiscal Year (FY) 2014 Enacted: $2.98 billion<br>
+            FY 2015 Enacted: $2.615 billion<br>
+            FY 2016 Enacted:$2.851 billion<br>
+            FY 2017 Enacted: $2.932 billion</dd>
+
+        <dt class="question">How do I obtain a park entrance pass?</dt>
+        <dd class="invisible">Fewer than one-third of the national parks charge entrance fees. You can obtain park entrance passes by visiting a park site that charges an entrance fee. Entrance fee sites have passes available; we recommend calling a park prior to your visit. (See the park search to locate a specific park.) There are a number of entrance passes available, including park-specific passes as well as passes that offer entrance to more than 2,000 federal recreation sites in addition to the national parks (Annual, Military, Senior, 4th Grade, Access, and Volunteer passes). Learn more about the America the Beautiful - The National Parks and Federal Recreational Lands Pass.</dd>
+
+    </dl>
+
+    <!----------TRAVERSING EXERCISE---------->
+    <a href="#" id="buttonYellow">Make Last item of a list yellow</a>
+
+    <h3 >Abilene</h3>
+
+
+    <ul>
+        <li>Abilene State Park is a 529.4-acres</li>
+        <li>Abilene features camping, trailer facilities, picnicking, shelters, a swimming pool, and hiking.</li>
+        <li>Abilene was once a campground for Comanche Indians.</li>
+        <li>Abilene State Park opened on May 10, 1934.</li>
+        <li>The state acquired the property in 1933 from the city of Abilene.</li>
+    </ul>
+
+    <h3>Big Bend</h3>
+
+    <ul>
+        <li>Big Bend has 238 miles of multiuse trails (for hiking, biking and riding horses).</li>
+        <li>Big Bend has a 5,500-foot paved airstrip.</li>
+        <li>Big Bend has been designated an International Dark Sky Park; learn more about stargazing here.</li>
+        <li>Big Bend Ranch State Park is Texas’ largest state park, at over 300,000 acres.</li>
+        <li>Big Bend opened on a limited basis in 1991. It opened fully to the public in 2007.</li>
+    </ul>
+
+    <h3>Choke Canyon</h3>
+
+    <ul>
+        <li>Choke Canyon State Park is on the shore of the Choke Canyon Reservoir, which supplies water for Corpus Christi.</li>
+        <li>Archeologists have found numerous Archaic sites in the Choke Canyon area.</li>
+        <li>American alligators live in the park. Choke Canyon is the westernmost place where they commonly occur.</li>
+        <li>The Choke Canyon Dam is near where the Gulf shoreline was about 30 million years ago.</li>
+        <li>This land formed during the Cenozoic Era (the period following the extinction of dinosaurs).</li>
+    </ul>
+
+    <div class="pictureContainer">
+        <div class="picture-button-One">
+            <div class="frame imageOne"></div>
+            <button class="swapButton" id="button-right">Move Right</button>
+        </div>
+        <div class="picture-button-Two">
+            <div class="frame imageTwo" ></div>
+            <button class="swapButton" id="button-random"> Move Randomly</button>
+        </div>
+        <div class="picture-button-Three">
+            <div class="frame imageThree"></div>
+            <button class="swapButton" id="button-left"> Move Left</button>
+        </div>
+    </div>
+
+
+
+    <!-- jQuery LOCAL LIBRARY LINK -->
+    <script src="js/jquery-2.2.4.js"></script>
+
+    <!-- jQuery SCRIPT -->
+    <script type="text/javascript">
+        'use strict';
+        $(document).ready(function() { //Run jQuery after document loads
+
+            // TODO; Update the page with jQuery to add a link that toggles the class invisible on and off for all dd elements.
+
+            // ----------- EXERCISE #1 -----------
+            $('.question').click(function() {
+
+                $(this).toggleClass('highlight');  // BONUS: Highlight dt elements
+
+
+                // ALTERNATE VERSION TO TOGGLE CLASS
+                // if($('dd').attr('class') === 'invisible'){
+                //     $(".invisible").removeClass("invisible");
+                // } else{
+                //     $("dd").addClass("invisible");
+                // }
+
+                $('dd').toggleClass('invisible');
+
+
+            });
+
+            // ----------- EXERCISE #2 -----------
+            //TODO: Create a button that, when clicked, makes the last li in each ul have a yellow background.
+            $('#buttonYellow').click(function(){
+
+                $('ul').each(function(){
+
+                    $(this).children().last().css('background-color', 'yellow');
+
+                });
+
+            });
+            //TODO: When any h3 is clicked, the lis underneath it should be bolded. Use font-weight: bold to achieve this.
+            $('h3').click(function(){
+
+                $(this).next().css('font-weight', 'bold');
+
+            });
+
+            //TODO: When any list item is clicked, first li of the parent ul should have a font color of blue.
+            $('ul').click(function(){
+
+                $(this).children().first().css('color', 'blue');
+
+            });
+
+            //TODO: Create 3 divs that each look like a picture frame. Each one should have a unique background image and a button underneath that swaps the image from the frame.
+            // Use the traversing functions of jQuery to accomplish this.The rules are the following:
+                // The left frame swaps to the right and takes the image from the frame in the center.
+                // The center frame swaps randomly to either the left or right.
+                // The right frame swaps to the left and takes the image from the frame in the center.
+
+            $('#button-right').click(function(){
+
+                $('.picture-button-One').children().first().removeClass('imageOne').addClass('imageTwo');
+                $('.picture-button-Two').children().first().removeClass('imageTwo').addClass('imageOne');
+
+            });
+
+            $('#button-random').click(function(){
+
+            });
+
+            $('#button-left').click(function(){
+
+            });
+
+        });// ready()
+
+
+    </script>
+</body>
+</html>
