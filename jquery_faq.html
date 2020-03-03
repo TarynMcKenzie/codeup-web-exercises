@@ -6,7 +6,7 @@
 
     <!-- CUSTOM CSS STYLING -->
     <style>
-        *{
+        body{
             margin: 3%;
         }
         .invisible{
@@ -40,12 +40,36 @@
             background-image: url("img/animal3.jpg");
 
         }
+        .signUp{
+            border: 1px solid grey;
+            display: flex;
+            justify-content: space-between;
+        }
+        .register{
+            background-color: indianred;
+            border: 1px solid grey;
+            display: flex;
+            justify-content: space-between;
+            font-size: 5em;
+        }
+
     </style>
 
 </head>
 <body>
 
     <!-- HTML DOCUMENT CONTENT GOES HERE -->
+
+    <!----------EFFECTS EXERCISE---------->
+    <div class="signUp">
+        <h1>Would you like to sign up for our newsletter?</h1>
+        <span id="x-signUp">x</span>
+    </div>
+
+    <div class="register">
+        <h1>Register Now!</h1>
+        <span id="x-register">x</span>
+    </div>
 
     <!----------ATTRIBUTES AND CSS EXERCISE---------->
     <h1>(Attributes and CSS) && Traversing</h1>
@@ -100,7 +124,7 @@
     <h3 >Abilene</h3>
 
 
-    <ul>
+    <ul class="parks-facts">
         <li>Abilene State Park is a 529.4-acres</li>
         <li>Abilene features camping, trailer facilities, picnicking, shelters, a swimming pool, and hiking.</li>
         <li>Abilene was once a campground for Comanche Indians.</li>
@@ -110,7 +134,7 @@
 
     <h3>Big Bend</h3>
 
-    <ul>
+    <ul class="parks-facts">
         <li>Big Bend has 238 miles of multiuse trails (for hiking, biking and riding horses).</li>
         <li>Big Bend has a 5,500-foot paved airstrip.</li>
         <li>Big Bend has been designated an International Dark Sky Park; learn more about stargazing here.</li>
@@ -120,7 +144,7 @@
 
     <h3>Choke Canyon</h3>
 
-    <ul>
+    <ul class="parks-facts">
         <li>Choke Canyon State Park is on the shore of the Choke Canyon Reservoir, which supplies water for Corpus Christi.</li>
         <li>Archeologists have found numerous Archaic sites in the Choke Canyon area.</li>
         <li>American alligators live in the park. Choke Canyon is the westernmost place where they commonly occur.</li>
@@ -218,6 +242,30 @@
             $('#button-left').click(function(){
 
             });
+
+
+            // ----------- EXERCISE #3 -----------
+
+            document.getElementById("x-signUp").style.cursor = "pointer";
+
+            $('#x-signUp').click(function(){
+                $('.signUp').hide();
+            });
+
+            $('ul').hide();
+
+            $('h3').click(function(){
+                $(this).next().slideDown(1000);
+            });
+
+            $('.register').hide();
+
+            $('.register').delay(8000).fadeIn(1000);
+
+            $('#x-register').click(function(){
+                $('.register').hide();
+            });
+
 
         });// ready()
 
