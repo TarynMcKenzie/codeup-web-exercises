@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Online Store</title>
+</head>
+    <body>
+
+    <!-- HTML DOCUMENT CONTENT GOES HERE -->
+    <h1>My Tool Store</h1>
+
+    <table id="products">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Categories</th>
+            </tr>
+        </thead>
+        <tbody id="insertProducts"></tbody>
+    </table>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <script>
+        (function() {
+            "use strict";
+
+            // TODO: Create an ajax GET request for /data/inventory.json
+
+            $.get("data/inventory.json").done(function(data) {
+                console.log("Everything went great!");
+                console.log(data);
+
+
+                // TODO: Take the data from inventory.json and append it to the products table
+                //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+                //             its contents and fields
+                //       HINT: You will want to target #insertProducts for your new HTML elements
+
+                var productToTable = '';
+
+                $.each(data, function (index, item) {
+
+                    console.log(item);
+                    console.log(index);
+
+                    var title = '<td>' + item.title + '</td>';
+                    var quantity = '<td>' + item.quantity + '</td>';
+                    var price = '<td>' + item.price + '</td>';
+                    var categories = '<td>' + item.categories + '</td>';
+
+                    productToTable += '<tr>' + title + quantity + price + categories + '</tr>';
+
+                });
+
+                $('#insertProducts').append(productToTable);
+
+            });
+        })();
+</script>
+
+</body>
+</html>
