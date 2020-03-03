@@ -30,5 +30,12 @@
             "tool"
         ],
         "price": 10
+    }, {
+    "title": "Miter Saw",
+    "quantity": 50,
+    "categories": [
+        "tool"
+    ],
+    "price": 250
     }
 ]
