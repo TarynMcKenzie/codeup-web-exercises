@@ -27,7 +27,7 @@
         ],
         "price": 200
     }, {
-        "image" : "580b585b2edbce24c47b2bd3.png",
+        "image" : "580b585b2edbce24c47b2bb7.png",
         "title": "Screwdriver",
         "quantity": 25,
         "categories": [
@@ -41,6 +41,6 @@
         "categories": [
             "tool"
         ],
-        "price": 250
+        "price": 255
     }
 ]

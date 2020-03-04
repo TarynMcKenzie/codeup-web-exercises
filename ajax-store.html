@@ -9,13 +9,17 @@
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="css/ajax-store.css">
 
+    <!-- GOOGLE FONTS CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Russo+One&display=swap" rel="stylesheet">
+
+
 </head>
     <body>
 
     <!------------------------ TOP NAVIGATION ------------------------>
 
-    <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar fixed-top navbar-expand-lg">
+        <a class="navbar-brand" href="#">BLACKLABEL TOOLS</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,62 +43,68 @@
         </div>
     </nav>
 
-    <!------------------------ PROMOTION CAROUSEL ------------------------>
+    <!------------------------ PROMOTION JUMBOTRON ------------------------>
+
+
+    <div class="jumbotron text-center ">
+        <h2 class="display-4 jumbotron-header">GET THE JOB DONE</h2>
+        <a class="btn btn-md" id="jumbotron-btn" href="#" role="button">Learn more</a>
+    </div>
 
 
 
     <!------------------------ PRODUCT TABLE ------------------------>
-    <h1>My Tool Store</h1>
+    <h1 class="text-center section-header">OUR PRODUCTS</h1>
 
-    <button id="refresh-btn">Refresh</button>
 
     <div class="container col-12">
         <div class="row d-flex justify-content-around" id="insertProducts"></div>
     </div>
 
+    <div class="text-center">
+        <button class="btn" id="refresh-btn">Refresh</button>
+    </div>
 
     <!------------------------ JQUERY ------------------------>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <!------------------------ AJAX ------------------------>
     <script>
+    "use strict";
         (function() {
-            "use strict";
 
-            $.get("data/inventory.json").done(function (data) { //grab the data from the data directory --> inventory.json file
+            function getData(){
+                $.get("data/inventory.json").done(function (data) { //grab the data from the data directory --> inventory.json file
 
-                // console.log("Everything went great!");
+                    // console.log("Everything went great!");
 
-                var productToTable = ''; // string bucket
+                    var productToTable = ''; // string bucket
 
-                $.each(data, function (index, item) { // Loop through the objects in the array
+                    $.each(data, function (index, item) { // Loop through the objects in the array
 
-                    productToTable += '<div class="card">';
-                    productToTable += '<img class="card-img-top" src="../img/' + item.image + '>';
-                    productToTable += '<div class="card-body"><h5 class="card-title">' + item.title + ' </h5>';
-                    productToTable += '<p class="card-text">' + item.categories + ' </p>';
-                    productToTable += '<p class="card-text">' + item.price + ' </p>';
-                    productToTable += '</div></div>';
+                        productToTable += '<div class="card">';
+                        productToTable += '<img class="card-img-top" src="./img/' + item.image + '" >';
+                        productToTable += '<div class="card-body"><h5 class="card-title">' + item.title + ' </h5>';
+                        productToTable += '<p class="card-text">' + item.categories + ' </p>';
+                        productToTable += '<p class="card-text">' + item.price + ' </p>';
+                        productToTable += '<button class="btn btn-outline-dark" id="product-btn"> View Product </button>';
+                        productToTable += '</div></div>';
 
+                    });
+
+                    $('#insertProducts').append(productToTable); // Take the retrieved products and place them in the table
                 });
+            }
 
-                $('#insertProducts').append(productToTable); // Take the retrieved products and place them in the table
-            });
+            getData();
 
 
-            $(document).ready(function(){
+            $("#refresh-btn").click(function(event){ // When the refresh button is clicked
 
-                $("#refresh-btn").click(function(event){ // When the refresh button is clicked
-
-                    event.preventDefault(); // Remove submit to server functionality
-                    location.reload(); // refresh the page
-
-                });
-
-                console.log("I refreshed the page!"); // Let us know you did your job
+                event.preventDefault(); // Remove submit button to server functionality
+                getData(); // refresh the page
 
             });
-
 
 
         })();
