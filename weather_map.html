@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+</head>
+<body>
+
+
+    <script>
+        'use strict';
+
+        $.ajax("https://api.darksky.net/forecast/"+ darkSkyKey + ",-122.4233").done(function(data) {
+            console.log(data);
+        });
+    </script>
+</body>
+</html>
