@@ -22,27 +22,19 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn my-2 my-sm-0 search-btn" type="submit">Search</button>
             </form>
         </div>
     </nav>
@@ -56,8 +48,8 @@
 
     <button id="refresh-btn">Refresh</button>
 
-    <div class="container col-6">
-        <div class="row d-flex justify-content-center" id="insertProducts"></div>
+    <div class="container col-12">
+        <div class="row d-flex justify-content-around" id="insertProducts"></div>
     </div>
 
 
@@ -69,35 +61,24 @@
         (function() {
             "use strict";
 
-            // TODO: Create an ajax GET request for /data/inventory.json
+            $.get("data/inventory.json").done(function (data) { //grab the data from the data directory --> inventory.json file
 
-            $.get("data/inventory.json").done(function(data) { //grab the data from the data directory --> inventory.json file
                 // console.log("Everything went great!");
-                // console.log(data);
-
-
-                // TODO: Take the data from inventory.json and append it to the products table
-                //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-                //             its contents and fields
-                //       HINT: You will want to target #insertProducts for your new HTML elements
 
                 var productToTable = ''; // string bucket
 
                 $.each(data, function (index, item) { // Loop through the objects in the array
 
-                    // console.log(item);
-                    // console.log(index);
-
-                    productToTable += '</div class="card">' + item.title ; // get the product title
-                    productToTable +='<div>' + item.quantity + '</div>';// get the product quantity
-                    productToTable += '<div>' + item.price + '</div>'; // get the product price
-                    productToTable += '<div>' + item.categories + '</div>'; // get the product categories
-                    productToTable += '<div>'
+                    productToTable += '<div class="card">';
+                    productToTable += '<img class="card-img-top" src="../img/' + item.image + '>';
+                    productToTable += '<div class="card-body"><h5 class="card-title">' + item.title + ' </h5>';
+                    productToTable += '<p class="card-text">' + item.categories + ' </p>';
+                    productToTable += '<p class="card-text">' + item.price + ' </p>';
+                    productToTable += '</div></div>';
 
                 });
 
                 $('#insertProducts').append(productToTable); // Take the retrieved products and place them in the table
-
             });
 
 

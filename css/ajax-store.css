@@ -14,3 +14,27 @@ body{
     background-color: var(--background-color);
 
 }
+
+/*-----NAVIGATION-----*/
+.navbar{
+    background-color: var(--secondary-color);
+    color: var(--primary-text-color);
+}
+
+a:link{
+    color: var(--primary-text-color);
+    text-decoration: none;
+}
+
+/*-----CARDS-----*/
+.card{
+
+    height: 300px;
+    width: 200px;
+    padding: 2%;
+    transition: all 0.3s ease-out;
+
+}
+.card:hover{
+    transform: translateY(-5px) scale(1.005) translateZ(0);
+}

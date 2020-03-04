@@ -26,24 +26,28 @@
     <script>
         'use strict';
 
-        $.get("data/blog.json").done(function(data) { //grab the data from the data directory --> inventory.json file
+        (function() {
 
-            // console.log("Everything went great!");
+            $.get("data/blog.json").done(function (data) { //grab the data from the data directory --> inventory.json file
 
-            var productToTable = ''; // string bucket
+                // console.log("Everything went great!");
 
-            $.each(data, function (index, item) { // Loop through the objects in the array
+                var productToTable = ''; // string bucket
 
-                productToTable += '<div class="card">'+  item.title ;
-                productToTable += '<div>'+  item.content + ' </div>';
-                productToTable += '<div>'+  item.categories + ' </div>';
-                productToTable += '<div>'+  item.date + ' </div>';
-                productToTable += '</div>';
+                $.each(data, function (index, item) { // Loop through the objects in the array
 
+                    productToTable += '<div class="card">' + item.title;
+                    productToTable += '<div>' + item.content + ' </div>';
+                    productToTable += '<div>' + item.categories + ' </div>';
+                    productToTable += '<div>' + item.date + ' </div>';
+                    productToTable += '</div>';
+
+                });
+
+                $('#posts').append(productToTable); // Take the retrieved products and place them in the table
             });
 
-            $('#posts').append(productToTable); // Take the retrieved products and place them in the table
-        });
+        }) ();
 
     </script>
 

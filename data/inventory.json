@@ -1,5 +1,6 @@
 [
     {
+        "image" : "580b585b2edbce24c47b2bb7.png",
         "title": "Hammer",
         "quantity": 25,
         "categories": [
@@ -7,6 +8,7 @@
         ],
         "price": 20
     }, {
+        "image" : "580b585b2edbce24c47b2bb7.png",
         "title": "Drill",
         "quantity": 5,
         "categories": [
@@ -15,6 +17,7 @@
         ],
         "price": 100
     }, {
+        "image" : "580b585b2edbce24c47b2bb7.png",
         "title": "Mower",
         "quantity": 5,
         "categories": [
@@ -24,18 +27,20 @@
         ],
         "price": 200
     }, {
-        "title": "Screwdrivers",
+        "image" : "580b585b2edbce24c47b2bd3.png",
+        "title": "Screwdriver",
         "quantity": 25,
         "categories": [
             "tool"
         ],
         "price": 10
     }, {
-    "title": "Miter Saw",
-    "quantity": 50,
-    "categories": [
-        "tool"
-    ],
-    "price": 250
+        "image" : "580b585b2edbce24c47b2bb7.png",
+        "title": "Miter Saw",
+        "quantity": 50,
+        "categories": [
+            "tool"
+        ],
+        "price": 250
     }
 ]
