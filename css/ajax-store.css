@@ -1,0 +1,16 @@
+*{
+
+    --main-color:#235789;
+    --secondary-color:#222E50;
+    --accent-color:#EAC435;
+    --background-color:#FAFAFA;
+    --primary-text-color:#14080E;
+
+}
+
+body{
+
+    color: var(--primary-text-color);
+    background-color: var(--background-color);
+
+}

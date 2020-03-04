@@ -5,38 +5,73 @@
 
     <!-- BOOTSTRAP CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="css/ajax-store.css">
+
 </head>
     <body>
 
-    <!-- HTML DOCUMENT CONTENT GOES HERE -->
-    <h1>My Tool Store</h1>
+    <!------------------------ TOP NAVIGATION ------------------------>
 
-    <table id="products">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Categories</th>
-            </tr>
-        </thead>
-        <tbody id="insertProducts"></tbody>
-    </table>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <!------------------------ PROMOTION CAROUSEL ------------------------>
+
+
+
+    <!------------------------ PRODUCT TABLE ------------------------>
+    <h1>My Tool Store</h1>
 
     <button id="refresh-btn">Refresh</button>
 
+    <div class="container col-6">
+        <div class="row d-flex justify-content-center" id="insertProducts"></div>
+    </div>
 
-    <!-- JQUERY -->
+
+    <!------------------------ JQUERY ------------------------>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-    <!-- AJAX -->
+    <!------------------------ AJAX ------------------------>
     <script>
         (function() {
             "use strict";
 
             // TODO: Create an ajax GET request for /data/inventory.json
 
-            $.get("data/inventory.json").done(function(data) {
+            $.get("data/inventory.json").done(function(data) { //grab the data from the data directory --> inventory.json file
                 // console.log("Everything went great!");
                 // console.log(data);
 
@@ -46,32 +81,37 @@
                 //             its contents and fields
                 //       HINT: You will want to target #insertProducts for your new HTML elements
 
-                var productToTable = '';
+                var productToTable = ''; // string bucket
 
-                $.each(data, function (index, item) {
+                $.each(data, function (index, item) { // Loop through the objects in the array
 
                     // console.log(item);
                     // console.log(index);
 
-                    var title = '<td>' + item.title + '</td>';
-                    var quantity = '<td>' + item.quantity + '</td>';
-                    var price = '<td>' + item.price + '</td>';
-                    var categories = '<td>' + item.categories + '</td>';
-
-                    productToTable += '<tr>' + title + quantity + price + categories + '</tr>';
+                    productToTable += '</div class="card">' + item.title ; // get the product title
+                    productToTable +='<div>' + item.quantity + '</div>';// get the product quantity
+                    productToTable += '<div>' + item.price + '</div>'; // get the product price
+                    productToTable += '<div>' + item.categories + '</div>'; // get the product categories
+                    productToTable += '<div>'
 
                 });
 
-                $('#insertProducts').append(productToTable);
+                $('#insertProducts').append(productToTable); // Take the retrieved products and place them in the table
 
             });
 
 
             $(document).ready(function(){
-                $("#refresh-btn").click(function(){
-                    location.reload();
+
+                $("#refresh-btn").click(function(event){ // When the refresh button is clicked
+
+                    event.preventDefault(); // Remove submit to server functionality
+                    location.reload(); // refresh the page
+
                 });
-                    console.log("I refreshed the page!");
+
+                console.log("I refreshed the page!"); // Let us know you did your job
+
             });
 
 
