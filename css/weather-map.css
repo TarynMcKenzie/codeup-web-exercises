@@ -3,27 +3,45 @@
 }
 
 body{
-
+    height: 100vh;
+    background: rgb(215,215,215);
+    background: linear-gradient(0deg, rgba(215,215,215,1) 0%, rgba(167,221,255,1) 100%);
 }
 
 /*--------CARD ELEMENTS-------*/
+#weather-card-container{
+   margin: 10% 0%;
+}
 
 .card img {
-    height: 50px;
-    width: 50px;
-
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    margin: 5% 70%;
 }
 
 .card {
-    /*position: relative;*/
-    width: 235px;
+    width: 400px;
     margin: 0 auto;
     background: transparent;
-    border: none;
     transition: box-shadow 600ms ease;
+    padding: 5px;
+}
+
+div .card-body{
+    padding: 5% 10%;
+    background: transparent;
 }
 
 .card:hover {
-    box-shadow: 0 0 40px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 30px 5px darkslategrey;
     transform: translateY(-5px) scale(1.005) translateZ(0);
+}
+
+.lowHigh{
+    font-size: 4em;
+}
+
+.humidity{
+    font-size: .85em;
 }

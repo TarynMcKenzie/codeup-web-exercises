@@ -137,23 +137,23 @@
             // ------------------------ TODAY'S WEATHER CARD ------------------------
 
             html += '<div class="card">' + todayImg; //get the current weather icon
-            html += '<div class="card-body">'+ Math.round(data.daily.data[0].temperatureLow) + ' / '+ Math.round(data.daily.data[0].temperatureHigh )+ '</div>'; // Get daily temperature high and low
-            html += '<div class="card-body">'+ data.daily.data[0].summary + '</div>'; // Get daily temperature summary
-            html += '<div class="card-body">'+ percentageCreator(data.daily.data[0].humidity)+ '% </div></div>'; // Get daily temperature humidity (decimal) and multiply by 100 to get percentage
+            html += '<div class="card-body lowHigh">'+ Math.round(data.daily.data[0].temperatureLow) + ' / '+ Math.round(data.daily.data[0].temperatureHigh )+ '</div>'; // Get daily temperature high and low
+            html += '<div class="card-body summary">'+ data.daily.data[0].summary + '</div>'; // Get daily temperature summary
+            html += '<div class="card-body humidity">'+ percentageCreator(data.daily.data[0].humidity)+ '% humidity</div></div>'; // Get daily temperature humidity (decimal) and multiply by 100 to get percentage
 
             // ------------------------ TOMORROW'S WEATHER CARD ------------------------
 
             html += '<div class="card">' + tomorrowImg; //get the current weather icon
-            html += '<div class="card-body">'+ Math.round(data.daily.data[1].temperatureLow) + ' / '+ Math.round(data.daily.data[1].temperatureHigh) + '</div>'; // Get daily temperature high and low
-            html += '<div class="card-body">'+ data.daily.data[1].summary + '</div>'; // Get daily temperature summary
-            html += '<div class="card-body">'+ percentageCreator(data.daily.data[1].humidity) + '% </div></div>'; // Get daily temperature humidity (decimal) and multiply by 100 to get percentage
+            html += '<div class="card-body lowHigh">'+ Math.round(data.daily.data[1].temperatureLow) + ' / '+ Math.round(data.daily.data[1].temperatureHigh) + '</div>'; // Get daily temperature high and low
+            html += '<div class="card-body summary">'+ data.daily.data[1].summary + '</div>'; // Get daily temperature summary
+            html += '<div class="card-body humidity">'+ percentageCreator(data.daily.data[1].humidity) + '% humidity</div></div>'; // Get daily temperature humidity (decimal) and multiply by 100 to get percentage
 
             // ------------------------ THE DAY AFTER'S WEATHER CARD ------------------------
 
             html += '<div class="card">' + dayAfterImg; //get the current weather icon
-            html +='<div class="card-body">'+ Math.round(data.daily.data[2].temperatureLow )+ ' / '+ Math.round(data.daily.data[2].temperatureHigh) + '</div>'; // Get daily temperature high and low
-            html += '<div class="card-body">'+ data.daily.data[2].summary + '</div>'; // Get daily temperature summary
-            html += '<div class="card-body">'+ percentageCreator(data.daily.data[2].humidity) + '% </div></div>'; // Get daily temperature humidity (decimal) and multiply by 100 to get percentage
+            html +='<div class="card-body lowHigh">'+ Math.round(data.daily.data[2].temperatureLow )+ ' / '+ Math.round(data.daily.data[2].temperatureHigh) + '</div>'; // Get daily temperature high and low
+            html += '<div class="card-body summary">'+ data.daily.data[2].summary + '</div>'; // Get daily temperature summary
+            html += '<div class="card-body humidity">'+ percentageCreator(data.daily.data[2].humidity) + '% humidity</div></div>'; // Get daily temperature humidity (decimal) and multiply by 100 to get percentage
 
 
             // ------------------------ INSERT CARDS TO HTML ------------------------
