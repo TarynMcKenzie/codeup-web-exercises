@@ -1,0 +1,46 @@
+[
+    {
+        "image" : "580b585b2edbce24c47b2bb7.png",
+        "title": "Hammer",
+        "quantity": 25,
+        "categories": [
+            "tool"
+        ],
+        "price": 20
+    }, {
+        "image" : "580b585b2edbce24c47b2bb7.png",
+        "title": "Drill",
+        "quantity": 5,
+        "categories": [
+            "tool",
+            "powered"
+        ],
+        "price": 100
+    }, {
+        "image" : "580b585b2edbce24c47b2bb7.png",
+        "title": "Mower",
+        "quantity": 5,
+        "categories": [
+            "tool",
+            "gas",
+            "outdoor"
+        ],
+        "price": 200
+    }, {
+        "image" : "580b585b2edbce24c47b2bb7.png",
+        "title": "Screwdriver",
+        "quantity": 25,
+        "categories": [
+            "tool"
+        ],
+        "price": 10
+    }, {
+        "image" : "580b585b2edbce24c47b2bb7.png",
+        "title": "Miter Saw",
+        "quantity": 50,
+        "categories": [
+            "tool"
+        ],
+        "price": 255
+    }
+]

@@ -1,1 +1,2 @@
 var mapboxToken = "pk.eyJ1IjoidGFyeW5tY2tlbnppZSIsImEiOiJjazZ0dHB5ZjgwMnhoM2VtdHpqdnM0NGdyIn0.z6SGfjzLCC5kZcPj6Xfotg";
+var darkSkyKey = "1da26b22deba663ecd39439386fd2440";
