@@ -1,0 +1,29 @@
+*{
+
+}
+
+body{
+
+}
+
+/*--------CARD ELEMENTS-------*/
+
+.card img {
+    height: 50px;
+    width: 50px;
+
+}
+
+.card {
+    /*position: relative;*/
+    width: 235px;
+    margin: 0 auto;
+    background: transparent;
+    border: none;
+    transition: box-shadow 600ms ease;
+}
+
+.card:hover {
+    box-shadow: 0 0 40px 5px rgba(0, 0, 0, 0.5);
+    transform: translateY(-5px) scale(1.005) translateZ(0);
+}
