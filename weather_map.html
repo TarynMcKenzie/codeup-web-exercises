@@ -7,6 +7,9 @@
     <!------------------------ CUSTOM CSS ------------------------>
     <link rel="stylesheet" href="css/weather-map.css">
 
+    <!------------------------ MAPBOX CSS ------------------------>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
+
     <!------------------------ BOOTSTRAP CSS ------------------------>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -16,13 +19,12 @@
     <!------------------------ WEATHER HEADER ------------------------>
 
     <!------------------------ WEATHER CARDS ------------------------>
-    <div class="container col-12" id="weather-card-container">
+    <div class="container-fluid " id="weather-card-container">
         <div class="row d-flex justify-content-around" id="weather-card"></div>
     </div>
 
     <!------------------------ WEATHER MAP ------------------------>
-
-
+    <div id='map'></div>
 
     <!------------------------ ICON ATTRIBUTIONS ------------------------>
     <!--    <div>Icons made by<a href="https://www.flaticon.com/authors/pixel-buddha" title="Pixel Buddha">Pixel Buddha</a>from<a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>-->
@@ -44,6 +46,12 @@
 
     <!------------------------ AJAX ------------------------>
     <script src="js/weather_map.js"></script>
+
+    <!------------------------ MAPBOX API ------------------------>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
+
+    <!------------------------ MAPBOX GEOCODER FUNCTIONS ------------------------>
+    <script src="js/mapbox-geocoder-utils.js"></script>
 
     <!------------------------ BOOTSTRAP JS ------------------------>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

@@ -1,12 +1,32 @@
 'use strict';
 
+
+
+// ------------------------ IIFE ------------------------
 (function (){
 
+    // ------------------------ PERCENTAGE CALC ------------------------
     function percentageCreator(value){
+
         return Math.round(value * 100);
+
     }
 
+    // ------------------------ WEATHER ICONS ------------------------
+    var weatherIcons= [
+        {type: 'rain', image: './icon/003-rain.png'},
+        {type: 'clear-day', image: './icon/007-contrast.png'},
+        {type: 'clear-night', image: './icon/006-moon.png'},
+        {type: 'snow', image: './icon/004-snowflake.png'},
+        {type: 'sleet', image: './icon/004-snowflake.png'},
+        {type: 'wind', image: './icon/014-wind.png'},
+        {type: 'fog', image: './icon/005-clouds.png'},
+        {type: 'cloudy', image: './icon/001-cloudy.png'},
+        {type: 'partly-cloudy-day', image: './icon/001-cloudy.png'},
+        {type: 'partly-cloudy-night', image: './icon/005-clouds.png'}
+    ];
 
+    // ------------------------ WEATHER DATA FUNCTION ------------------------
     //29.4241° N, 98.4936° W (San Antonio)
     function getWeatherData(){
 
@@ -155,26 +175,42 @@
             html += '<div class="card-body summary">'+ data.daily.data[2].summary + '</div>'; // Get daily temperature summary
             html += '<div class="card-body humidity">'+ percentageCreator(data.daily.data[2].humidity) + '% humidity</div></div>'; // Get daily temperature humidity (decimal) and multiply by 100 to get percentage
 
-
-            // ------------------------ INSERT CARDS TO HTML ------------------------
+            // ------------------------ WEATHER DATA --> HTML ------------------------
             $('#weather-card').append(html); //Within the #weather-card div --> add the html data
         })
     }
 
+    // ------------------------ WEATHER DATA FUNCTION CALL ------------------------
     getWeatherData();
 
-    var weatherIcons= [
-        {type: 'rain', image: './icon/003-rain.png'},
-        {type: 'clear-day', image: './icon/007-contrast.png'},
-        {type: 'clear-night', image: './icon/006-moon.png'},
-        {type: 'snow', image: './icon/004-snowflake.png'},
-        {type: 'sleet', image: './icon/004-snowflake.png'},
-        {type: 'wind', image: './icon/014-wind.png'},
-        {type: 'fog', image: './icon/005-clouds.png'},
-        {type: 'cloudy', image: './icon/001-cloudy.png'},
-        {type: 'partly-cloudy-day', image: './icon/001-cloudy.png'},
-        {type: 'partly-cloudy-night', image: './icon/005-clouds.png'}
-    ];
+
+    // ------------------------ MAPBOX CONTAINER ------------------------
+    mapboxgl.accessToken = mapboxToken;
+    var map = new mapboxgl.Map({ //constructing the mapboxgl object from mapbox
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 10,
+        center: [-98.4916, 29.4252]
+    });
+
+    // ------------------------ MAPBOX MARKER ------------------------
+    var markerOptions = {
+        color: "#333000",
+        draggable: true
+    };
+
+    var marker = new mapboxgl.Marker(markerOptions)
+        .setLngLat([-98.48625, 29.42572])
+        .addTo(map);
+
+    // ------------------------ MAPBOX GEOCODE ------------------------
+    geocode(marker, mapboxToken).then(function(result){
+        console.log(result);
+        map.setCenter(result);
+        map.setZoom(15);
+
+        map.flyTo({center: result, zoom: 15} );
+    });
 
 
 })();
