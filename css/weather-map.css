@@ -6,6 +6,8 @@ body{
     height: 100vh;
     background: rgb(215,215,215);
     background: linear-gradient(0deg, rgba(215,215,215,1) 0%, rgba(167,221,255,1) 100%);
+    z-index: 0;
+    position: fixed;
 }
 
 /*--------FANCY SEARCH BAR-------*/
@@ -14,7 +16,7 @@ body{
     margin-top: 2%;
     right: 30px;
     height: 60px;
-    background-color: #072a48;
+    background-color: #5dbddd;
     border-radius: 30px;
     padding: 10px;
     z-index: 2;
@@ -35,13 +37,13 @@ body{
 .searchbar:hover > .search_input{
     padding: 0 10px;
     width: 450px;
-    caret-color: #072a48;
+    caret-color: #5dbddd;
     transition: width 0.4s linear;
 }
 
 .searchbar:hover > .search_icon{
     background: #fff8fd;
-    color: #072a48;
+    color: #5dbddd;
 }
 
 .search_icon{
@@ -60,14 +62,14 @@ body{
 #weather-card-container{
     z-index: 2;
     position: fixed;
-    background-color: #072a48;
+    background-color: rgba(93, 189, 221, 0.6);
     height: 100vh;
-    width: 30%;
+    width: 20%;
 }
 
 .weather-header{
     color: #fff;
-     margin: 10% 0;
+    margin: 10% 0;
 }
 
 .card img {
@@ -80,11 +82,10 @@ body{
 .card {
     width: 400px;
     margin: 10px auto;
-    background-color: rgba(255, 255, 255, 0.1);
-    /*opacity: .4;*/
+    background-color: rgb(255, 255, 255);
     transition: box-shadow 600ms ease;
     padding: 5px;
-    box-shadow: 0 0 5px 1px #4a4a4b;
+    /*box-shadow: 0 0 5px 1px #4a4a4b;*/
 }
 
 div .card-body{
@@ -93,7 +94,7 @@ div .card-body{
 }
 
 .card:hover {
-    box-shadow: 0 0 10px 5px darkslategrey;
+    /*box-shadow: 0 0 10px 5px darkslategrey;*/
     transform: translateY(-5px) scale(1.005) translateZ(0);
 }
 
@@ -111,4 +112,14 @@ div .card-body{
     height: 100vh;
 
     z-index: 1;
+}
+
+/*--------MAPBOX GEOCODER SEARCH-------*/
+.geocoder {
+    position: absolute;
+    z-index: 2;
+    width: 50%;
+    left: 50%;
+    margin-left: -25%;
+    top: 10px;
 }

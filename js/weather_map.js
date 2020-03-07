@@ -26,12 +26,68 @@
         {type: 'partly-cloudy-night', image: './icon/005-clouds.png'}
     ];
 
+    // ------------------------ MAPBOX CONTAINER ------------------------
+    mapboxgl.accessToken = mapboxToken; //Give the key
+    var map = new mapboxgl.Map({ //constructing the mapboxgl object from mapbox
+        container: 'map', //Place the map in the element with id of map
+        style: 'mapbox://styles/mapbox/streets-v9', //The map style
+        zoom: 10, //Moderate starting zoom
+        center: [-98.4916, 29.4252] // center the map on San Antonio
+    });
+
+    // ------------------------ MAPBOX MARKER ------------------------
+    var markerOptions = {
+        color: "#333000", //Set the color of the marker
+        draggable: true //It is draggable!
+    };
+
+    var marker = new mapboxgl.Marker(markerOptions)
+        .setLngLat([-98.48625, 29.42572]) //The marker's starting position
+        .addTo(map); //Place the marker on the map
+
+    // ------------------------ MAPBOX GEOCODE ------------------------
+
+    function onDragEnd() {
+        var lngLat = marker.getLngLat();
+        var lngLatMessage = ('Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat);
+        $('#input-container').html(lngLatMessage);
+        console.log(lngLatMessage);
+    }
+    marker.on('dragend', onDragEnd);
+
+
+    // Add geolocate control to the map.
+    map.addControl(
+        new mapboxgl.GeolocateControl({
+            positionOptions: {
+                enableHighAccuracy: true
+            },
+            trackUserLocation: false // true == follow user location , false == get the user location once
+        })
+    );
+
+    var geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+    });
+
+    $('#geocoder').append(geocoder.onAdd(map)); // Add the Mapbox geocoder city search
+
     // ------------------------ WEATHER DATA FUNCTION ------------------------
     //29.4241° N, 98.4936° W (San Antonio)
-    function getWeatherData(){
+    function getWeatherData(coordinates){ // Weather data function that takes in a lat and long
 
-        $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241, -98.4936").done(function (data) {
-            console.log(data);
+        var long = coordinates.lng;
+        var lat = coordinates.lat;
+
+        console.log(long);
+        console.log(lat);
+        var apiKey = darkSkyKey; // key variable
+        var exclude = "?exclude=minutely,hourly,alerts,flags"; // exclude non essential information from retrieval, shorter loading time
+        var url = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + apiKey + "/" + lat + "," + long + exclude ; //concat variables together + exclude
+
+        $.ajax(url).done(function (data) { //use the url variable and create a function to request the weather data
+            console.log(data);// log the incoming data
             // console.log(new Date(data.currently.time * 1000));
 
             var html = '';
@@ -181,36 +237,7 @@
     }
 
     // ------------------------ WEATHER DATA FUNCTION CALL ------------------------
-    getWeatherData();
-
-
-    // ------------------------ MAPBOX CONTAINER ------------------------
-    mapboxgl.accessToken = mapboxToken;
-    var map = new mapboxgl.Map({ //constructing the mapboxgl object from mapbox
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v9',
-        zoom: 10,
-        center: [-98.4916, 29.4252]
-    });
-
-    // ------------------------ MAPBOX MARKER ------------------------
-    var markerOptions = {
-        color: "#333000",
-        draggable: true
-    };
-
-    var marker = new mapboxgl.Marker(markerOptions)
-        .setLngLat([-98.48625, 29.42572])
-        .addTo(map);
-
-    // ------------------------ MAPBOX GEOCODE ------------------------
-    geocode(marker, mapboxToken).then(function(result){
-        console.log(result);
-        map.setCenter(result);
-        map.setZoom(15);
-
-        map.flyTo({center: result, zoom: 15} );
-    });
+    getWeatherData(marker.getLngLat());
 
 
 })();
