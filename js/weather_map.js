@@ -24,10 +24,13 @@
         {type: 'partly-cloudy-night', image: './icon/005-clouds.png'}
     ];
 
+
     // ------------------------ MAPBOX ACCESS ------------------------
     mapboxgl.accessToken = mapboxToken; //Give the key
 
     // ------------------------ MAPBOX MAP ------------------------
+    var coordinates = document.getElementById('coordinates');
+
     var map = new mapboxgl.Map({ //constructing the mapboxgl object from mapbox
 
         container: 'map', //Place the map in the element with id of map
@@ -56,30 +59,44 @@
             'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
     }
 
-    marker.on('dragend', onDragEnd);
+    marker.on('dragend', function(event){
+        onDragEnd();
+        getWeatherData(event.lngLat);
+
+    });
 
 
     // ------------------------ GEOCODE USE LOCATION ------------------------
-    map.addControl(
-        new mapboxgl.GeolocateControl({
+
+        var geolocate = new mapboxgl.GeolocateControl({
             positionOptions: {
                 enableHighAccuracy: true
             },
             trackUserLocation: false // true == follow user location , false == get the user location once
-        })
-    );
+        });
+
+    map.addControl(geolocate);
+
+    geolocate.on('click', function(event){
+        getWeatherData(event.lngLat);
+    });
 
     // ------------------------ GEOCODE SEARCH BAR ------------------------
     map.addControl(
         new MapboxGeocoder({
             accessToken: mapboxgl.accessToken,
             placeholder: 'Enter search e.g. The Alamo',
-        })
+            mapboxgl: mapboxgl
+        }),
     );
 
+    mapboxgl.MapboxGeocoder.on('click', function(event){
+        getWeatherData(event.lngLat);
+    });
 
     // ------------------------ WEATHER DATA FUNCTION ------------------------
     //29.4241° N, 98.4936° W (San Antonio)
+
     function getWeatherData(coordinates){ // Weather data function that takes in a lat and long
 
         var long = coordinates.lng;
@@ -93,8 +110,9 @@
         var url = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + apiKey + "/" + lat + "," + long + exclude ; //concat variables together + exclude
 
         $.ajax(url).done(function (data) { //use the url variable and create a function to request the weather data
-            console.log(data);// log the incoming data
+
             // console.log(new Date(data.currently.time * 1000));
+            console.log(data);// log the incoming data
 
             var html = '';
             var todayImg = '';
@@ -138,8 +156,8 @@
                         console.log("There is no weather icon to display");
 
             }
-
             // ------------------------ TOMORROW'S WEATHER ICON ------------------------
+
             switch (data.daily.data[1].icon){
 
                 case 'rain':
@@ -176,8 +194,8 @@
                     console.log("There is no weather icon to display");
 
             }
-
             // ------------------------ THE DAY AFTER'S WEATHER ICON ------------------------
+
             switch (data.daily.data[2].icon){  // if the icon string pulled from the
 
                 case 'rain':
@@ -214,8 +232,6 @@
                     console.log("There is no weather icon to display");
 
             }
-
-
             // ------------------------ TODAY'S WEATHER CARD ------------------------
 
             html += '<div class="card">' + todayImg; //get the current weather icon
@@ -239,8 +255,10 @@
 
             // ------------------------ WEATHER DATA --> HTML ------------------------
             $('#weather-card').append(html); //Within the #weather-card div --> add the html data
+
         })
     }
+
 
     // ------------------------ WEATHER DATA FUNCTION CALL ------------------------
     getWeatherData(marker.getLngLat()); // Get the current marker coordinates and use them for the weather data coordinates
