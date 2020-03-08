@@ -1,18 +1,118 @@
 'use strict';
 
+
+
+// ------------------------ IIFE ------------------------
 (function (){
 
+    // ------------------------ PERCENTAGE CALC ------------------------
     function percentageCreator(value){
         return Math.round(value * 100);
     }
 
+    // ------------------------ WEATHER ICONS ------------------------
+    var weatherIcons= [
+        {type: 'rain', image: './icon/003-rain.png'},
+        {type: 'clear-day', image: './icon/007-contrast.png'},
+        {type: 'clear-night', image: './icon/006-moon.png'},
+        {type: 'snow', image: './icon/004-snowflake.png'},
+        {type: 'sleet', image: './icon/004-snowflake.png'},
+        {type: 'wind', image: './icon/014-wind.png'},
+        {type: 'fog', image: './icon/005-clouds.png'},
+        {type: 'cloudy', image: './icon/001-cloudy.png'},
+        {type: 'partly-cloudy-day', image: './icon/001-cloudy.png'},
+        {type: 'partly-cloudy-night', image: './icon/005-clouds.png'}
+    ];
 
+
+    // ------------------------ MAPBOX ACCESS ------------------------
+    mapboxgl.accessToken = mapboxToken; //Give the key
+
+    // ------------------------ MAPBOX MAP ------------------------
+    var coordinates = document.getElementById('coordinates');
+
+    var map = new mapboxgl.Map({ //constructing the mapboxgl object from mapbox
+
+        container: 'map', //Place the map in the element with id of map
+        style: 'mapbox://styles/mapbox/streets-v9', //The map style
+        zoom: 10, //Moderate starting zoom
+        center: [-98.4916, 29.4252], // center the map on San Antonio
+
+    });
+
+    // ------------------------ MAPBOX MARKER ------------------------
+    var markerOptions = {
+        color: "#333000", //Set the color of the marker
+        draggable: true //The marker is draggable!
+    };
+
+    var marker = new mapboxgl.Marker(markerOptions)
+        .setLngLat([-98.48625, 29.42572]) //The marker's starting position
+        .addTo(map); //Place the marker on the map
+
+
+    function onDragEnd() {
+        var lngLat = marker.getLngLat();
+        console.log(lngLat);
+        coordinates.style.display = 'block';
+        coordinates.innerHTML =
+            'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+    }
+
+    marker.on('dragend', function(event){
+        onDragEnd();
+        getWeatherData(event.lngLat);
+
+    });
+
+
+    // ------------------------ GEOCODE USE LOCATION ------------------------
+
+        var geolocate = new mapboxgl.GeolocateControl({
+            positionOptions: {
+                enableHighAccuracy: true
+            },
+            trackUserLocation: false // true == follow user location , false == get the user location once
+        });
+
+    map.addControl(geolocate);
+
+    geolocate.on('click', function(event){
+        getWeatherData(event.lngLat);
+    });
+
+    // ------------------------ GEOCODE SEARCH BAR ------------------------
+    map.addControl(
+        new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            placeholder: 'Enter search e.g. The Alamo',
+            mapboxgl: mapboxgl
+        }),
+    );
+
+    mapboxgl.MapboxGeocoder.on('click', function(event){
+        getWeatherData(event.lngLat);
+    });
+
+    // ------------------------ WEATHER DATA FUNCTION ------------------------
     //29.4241° N, 98.4936° W (San Antonio)
-    function getWeatherData(){
 
-        $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241, -98.4936").done(function (data) {
-            console.log(data);
+    function getWeatherData(coordinates){ // Weather data function that takes in a lat and long
+
+        var long = coordinates.lng;
+        var lat = coordinates.lat;
+
+        console.log(long);
+        console.log(lat);
+
+        var apiKey = darkSkyKey; // key variable
+        var exclude = "?exclude=minutely,hourly,alerts,flags"; // exclude non essential information from retrieval, shorter loading time
+        var url = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + apiKey + "/" + lat + "," + long + exclude ; //concat variables together + exclude
+
+        $.ajax(url).done(function (data) { //use the url variable and create a function to request the weather data
+
             // console.log(new Date(data.currently.time * 1000));
+            console.log(data);// log the incoming data
 
             var html = '';
             var todayImg = '';
@@ -56,8 +156,8 @@
                         console.log("There is no weather icon to display");
 
             }
-
             // ------------------------ TOMORROW'S WEATHER ICON ------------------------
+
             switch (data.daily.data[1].icon){
 
                 case 'rain':
@@ -94,8 +194,8 @@
                     console.log("There is no weather icon to display");
 
             }
-
             // ------------------------ THE DAY AFTER'S WEATHER ICON ------------------------
+
             switch (data.daily.data[2].icon){  // if the icon string pulled from the
 
                 case 'rain':
@@ -132,8 +232,6 @@
                     console.log("There is no weather icon to display");
 
             }
-
-
             // ------------------------ TODAY'S WEATHER CARD ------------------------
 
             html += '<div class="card">' + todayImg; //get the current weather icon
@@ -155,26 +253,15 @@
             html += '<div class="card-body summary">'+ data.daily.data[2].summary + '</div>'; // Get daily temperature summary
             html += '<div class="card-body humidity">'+ percentageCreator(data.daily.data[2].humidity) + '% humidity</div></div>'; // Get daily temperature humidity (decimal) and multiply by 100 to get percentage
 
-
-            // ------------------------ INSERT CARDS TO HTML ------------------------
+            // ------------------------ WEATHER DATA --> HTML ------------------------
             $('#weather-card').append(html); //Within the #weather-card div --> add the html data
+
         })
     }
 
-    getWeatherData();
 
-    var weatherIcons= [
-        {type: 'rain', image: './icon/003-rain.png'},
-        {type: 'clear-day', image: './icon/007-contrast.png'},
-        {type: 'clear-night', image: './icon/006-moon.png'},
-        {type: 'snow', image: './icon/004-snowflake.png'},
-        {type: 'sleet', image: './icon/004-snowflake.png'},
-        {type: 'wind', image: './icon/014-wind.png'},
-        {type: 'fog', image: './icon/005-clouds.png'},
-        {type: 'cloudy', image: './icon/001-cloudy.png'},
-        {type: 'partly-cloudy-day', image: './icon/001-cloudy.png'},
-        {type: 'partly-cloudy-night', image: './icon/005-clouds.png'}
-    ];
+    // ------------------------ WEATHER DATA FUNCTION CALL ------------------------
+    getWeatherData(marker.getLngLat()); // Get the current marker coordinates and use them for the weather data coordinates
 
 
 })();
