@@ -7,9 +7,7 @@
 
     // ------------------------ PERCENTAGE CALC ------------------------
     function percentageCreator(value){
-
         return Math.round(value * 100);
-
     }
 
     // ------------------------ WEATHER ICONS ------------------------
@@ -26,37 +24,42 @@
         {type: 'partly-cloudy-night', image: './icon/005-clouds.png'}
     ];
 
-    // ------------------------ MAPBOX CONTAINER ------------------------
+    // ------------------------ MAPBOX ACCESS ------------------------
     mapboxgl.accessToken = mapboxToken; //Give the key
+
+    // ------------------------ MAPBOX MAP ------------------------
     var map = new mapboxgl.Map({ //constructing the mapboxgl object from mapbox
+
         container: 'map', //Place the map in the element with id of map
         style: 'mapbox://styles/mapbox/streets-v9', //The map style
         zoom: 10, //Moderate starting zoom
-        center: [-98.4916, 29.4252] // center the map on San Antonio
+        center: [-98.4916, 29.4252], // center the map on San Antonio
+
     });
 
     // ------------------------ MAPBOX MARKER ------------------------
     var markerOptions = {
         color: "#333000", //Set the color of the marker
-        draggable: true //It is draggable!
+        draggable: true //The marker is draggable!
     };
 
     var marker = new mapboxgl.Marker(markerOptions)
         .setLngLat([-98.48625, 29.42572]) //The marker's starting position
         .addTo(map); //Place the marker on the map
 
-    // ------------------------ MAPBOX GEOCODE ------------------------
 
     function onDragEnd() {
         var lngLat = marker.getLngLat();
-        var lngLatMessage = ('Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat);
-        $('#input-container').html(lngLatMessage);
-        console.log(lngLatMessage);
+        console.log(lngLat);
+        coordinates.style.display = 'block';
+        coordinates.innerHTML =
+            'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
     }
+
     marker.on('dragend', onDragEnd);
 
 
-    // Add geolocate control to the map.
+    // ------------------------ GEOCODE USE LOCATION ------------------------
     map.addControl(
         new mapboxgl.GeolocateControl({
             positionOptions: {
@@ -66,12 +69,14 @@
         })
     );
 
-    var geocoder = new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl
-    });
+    // ------------------------ GEOCODE SEARCH BAR ------------------------
+    map.addControl(
+        new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            placeholder: 'Enter search e.g. The Alamo',
+        })
+    );
 
-    $('#geocoder').append(geocoder.onAdd(map)); // Add the Mapbox geocoder city search
 
     // ------------------------ WEATHER DATA FUNCTION ------------------------
     //29.4241° N, 98.4936° W (San Antonio)
@@ -82,6 +87,7 @@
 
         console.log(long);
         console.log(lat);
+
         var apiKey = darkSkyKey; // key variable
         var exclude = "?exclude=minutely,hourly,alerts,flags"; // exclude non essential information from retrieval, shorter loading time
         var url = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + apiKey + "/" + lat + "," + long + exclude ; //concat variables together + exclude
@@ -237,7 +243,7 @@
     }
 
     // ------------------------ WEATHER DATA FUNCTION CALL ------------------------
-    getWeatherData(marker.getLngLat());
+    getWeatherData(marker.getLngLat()); // Get the current marker coordinates and use them for the weather data coordinates
 
 
 })();
