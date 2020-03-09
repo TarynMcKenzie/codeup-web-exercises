@@ -53,45 +53,57 @@
 
     function onDragEnd() {
         var lngLat = marker.getLngLat();
-        console.log(lngLat);
+
         coordinates.style.display = 'block';
         coordinates.innerHTML =
             'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
     }
 
-    marker.on('dragend', function(event){
+    marker.on('dragend', function(e){
+
+        console.log(e.target._lngLat);
         onDragEnd();
-        getWeatherData(event.lngLat);
+        getWeatherData(e.target._lngLat);
 
     });
 
 
-    // ------------------------ GEOCODE USE LOCATION ------------------------
+    // ------------------------ GEOCODE USER LOCATION ------------------------
 
-        var geolocate = new mapboxgl.GeolocateControl({
-            positionOptions: {
-                enableHighAccuracy: true
-            },
-            trackUserLocation: false // true == follow user location , false == get the user location once
-        });
+    var geolocate = new mapboxgl.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true
+        },
+        trackUserLocation: false // true == follow user location , false == get the user location once
+    });
 
     map.addControl(geolocate);
 
-    geolocate.on('click', function(event){
-        getWeatherData(event.lngLat);
+    geolocate.on('click', function(e) {
+        console.log("On GeoLocate function");
+        console.log(e);
+
     });
 
-    // ------------------------ GEOCODE SEARCH BAR ------------------------
-    map.addControl(
-        new MapboxGeocoder({
+    // ------------------------ GEOCODER SEARCH BAR ------------------------
+    var geocoder = new MapboxGeocoder({
             accessToken: mapboxgl.accessToken,
             placeholder: 'Enter search e.g. The Alamo',
             mapboxgl: mapboxgl
-        }),
-    );
+        });
 
-    mapboxgl.MapboxGeocoder.on('click', function(event){
-        getWeatherData(event.lngLat);
+    map.addControl(geocoder);
+
+    geocoder.on('result', function(e) {
+        console.log("inGeocoder function");
+        console.log(e);
+        var lat = e.result.bbox[1];
+        var long = e.result.bbox[0];
+        var bucket = {lat: lat, lng: long};
+
+        console.log(bucket);
+        getWeatherData(bucket);
+
     });
 
     // ------------------------ WEATHER DATA FUNCTION ------------------------
@@ -109,6 +121,7 @@
         var exclude = "?exclude=minutely,hourly,alerts,flags"; // exclude non essential information from retrieval, shorter loading time
         var url = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + apiKey + "/" + lat + "," + long + exclude ; //concat variables together + exclude
 
+        console.log(url);
         $.ajax(url).done(function (data) { //use the url variable and create a function to request the weather data
 
             // console.log(new Date(data.currently.time * 1000));
@@ -254,13 +267,13 @@
             html += '<div class="card-body humidity">'+ percentageCreator(data.daily.data[2].humidity) + '% humidity</div></div>'; // Get daily temperature humidity (decimal) and multiply by 100 to get percentage
 
             // ------------------------ WEATHER DATA --> HTML ------------------------
-            $('#weather-card').append(html); //Within the #weather-card div --> add the html data
+            $('#weather-card').html(html); //Within the #weather-card div --> add the html data
 
         })
     }
 
-
     // ------------------------ WEATHER DATA FUNCTION CALL ------------------------
+    console.log(marker.getLngLat());
     getWeatherData(marker.getLngLat()); // Get the current marker coordinates and use them for the weather data coordinates
 
 
