@@ -53,17 +53,33 @@ $(document).ready(function() {
     /********************************* 1 *********************************/
 
     //  1. Using forEach()
+    var ids = []; //The bucket
 
+    mbpModels.forEach(function (mbp) { //iterate through the laptops array
+
+        ids.push(mbp.id); //push the id into the bucket
+
+    });
+
+    $('#forEach').html(createList(ids)); // place the output into the html document
 
     /********************************* 2 *********************************/
 
     //  2. Using map()
+    var idsMap = mbpModels.map(function(mbp){ // read the array
 
+        return mbp.id; // grab the value of id
+
+    });
+
+    $('#map').html(createList(idsMap)); // place the returned value into the html doc
 
     /********************************* 3 *********************************/
 
     //  3. Use ES6
+    let idsEs6 = mbpModels.map(mbp => mbp.id); // Read the array and return the id values
 
+    $('#mapES6').html(createList(idsEs6)); // place the returned items into the html doc
 
     /**************************** createList() ***************************/
     /******* returns a <li> type list in raw HTML ************************/
@@ -101,14 +117,41 @@ $(document).ready(function() {
 
     /********************************* 1 *********************************/
     //  1. Use forEach()
+    var mbpYr = []; //year bucket
 
+    mbpModels.forEach(function(mbp){ //itereate through the array
+
+        if (getYear(mbp.year) >= 2011) { //if the current item is newer than 2011
+
+            mbpYr.push(mbp.desc + ' ' + '<strong>' + getYear(mbp.year) +'</strong>')// push the year into the bucket
+
+        }
+
+    });
+
+    $('#filterForEach').html(createList(mbpYr));
 
     /********************************* 2 *********************************/
     //  2. Use filter()
+    var mbpYrFilter = mbpModels.filter(function(mbp){
 
+        return getYear(mbp.year) >= 2011; // return the item if it is true
+
+        });
+
+    $('#filter').html(createList(mbpYrFilter.map(function(mbp){
+
+        return mbp.desc + ' ' + '<strong>' + getYear(mbp.year) +'</strong>';
+
+    })));
 
     /********************************* 3 *********************************/
     //  3. Use ES6
+
+    let mbpYrFilterEs6 = mbpModels.filter( mbp => getYear(mbp.year) >= 2011); // if the laptop is newer thant 2011 return that laptop
+
+    $('#filterEs6').html(createList(mbpYrFilterEs6.map(mbp => mbp.desc + ' ' + '<strong>' + getYear(mbp.year) +'</strong>')));
+
 
 
     // *****************   ******     ******************//
