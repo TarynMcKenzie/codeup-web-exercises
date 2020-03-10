@@ -34,7 +34,7 @@
     var map = new mapboxgl.Map({ //constructing the mapboxgl object from mapbox
 
         container: 'map', //Place the map in the element with id of map
-        style: 'mapbox://styles/mapbox/streets-v9', //The map style
+        style: 'mapbox://styles/mapbox/outdoors-v11', //The map style
         zoom: 10, //Moderate starting zoom
         center: [-98.4916, 29.4252], // center the map on San Antonio
 
@@ -53,45 +53,60 @@
 
     function onDragEnd() {
         var lngLat = marker.getLngLat();
-        console.log(lngLat);
+
         coordinates.style.display = 'block';
         coordinates.innerHTML =
             'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
     }
 
-    marker.on('dragend', function(event){
+    marker.on('dragend', function(e){
+
+        console.log(e.target._lngLat);
         onDragEnd();
-        getWeatherData(event.lngLat);
+        getWeatherData(e.target._lngLat);
 
     });
 
 
-    // ------------------------ GEOCODE USE LOCATION ------------------------
+    // ------------------------ GEOCODE USER LOCATION ------------------------
 
-        var geolocate = new mapboxgl.GeolocateControl({
-            positionOptions: {
-                enableHighAccuracy: true
-            },
-            trackUserLocation: false // true == follow user location , false == get the user location once
-        });
+    var geolocate = new mapboxgl.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true
+        },
+        trackUserLocation: false // true == follow user location , false == get the user location once
+    });
 
     map.addControl(geolocate);
 
-    geolocate.on('click', function(event){
-        getWeatherData(event.lngLat);
+    geolocate.on('click', function(e) {
+        console.log("On GeoLocate function");
+        console.log(e);
+
     });
 
-    // ------------------------ GEOCODE SEARCH BAR ------------------------
-    map.addControl(
-        new MapboxGeocoder({
+    // ------------------------ GEOCODER SEARCH BAR ------------------------
+    var geocoder = new MapboxGeocoder({
             accessToken: mapboxgl.accessToken,
             placeholder: 'Enter search e.g. The Alamo',
-            mapboxgl: mapboxgl
-        }),
-    );
+        marker: {
+            color: 'orange' // Alter the marker styling
+        },
+            mapboxgl: mapboxgl // Add the market to the searched location result
+        });
 
-    mapboxgl.MapboxGeocoder.on('click', function(event){
-        getWeatherData(event.lngLat);
+    map.addControl(geocoder);
+
+    geocoder.on('result', function(e) {
+        console.log("inGeocoder function");
+        console.log(e);
+        var lat = e.result.bbox[1];
+        var long = e.result.bbox[0];
+        var bucket = {lat: lat, lng: long};
+
+        console.log(bucket);
+        getWeatherData(bucket);
+
     });
 
     // ------------------------ WEATHER DATA FUNCTION ------------------------
@@ -106,9 +121,10 @@
         console.log(lat);
 
         var apiKey = darkSkyKey; // key variable
-        var exclude = "?exclude=minutely,hourly,alerts,flags"; // exclude non essential information from retrieval, shorter loading time
+        var exclude = "?exclude=minutely,alerts,flags"; // exclude non essential information from retrieval, shorter loading time
         var url = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + apiKey + "/" + lat + "," + long + exclude ; //concat variables together + exclude
 
+        console.log(url);
         $.ajax(url).done(function (data) { //use the url variable and create a function to request the weather data
 
             // console.log(new Date(data.currently.time * 1000));
@@ -232,33 +248,117 @@
                     console.log("There is no weather icon to display");
 
             }
-            // ------------------------ TODAY'S WEATHER CARD ------------------------
 
+
+            // ------------------------ TODAY'S WEATHER CARD ------------------------
             html += '<div class="card">' + todayImg; //get the current weather icon
+            html += '<div class="card-title today-header"> Today </div> '; //Today Header
             html += '<div class="card-body lowHigh">'+ Math.round(data.daily.data[0].temperatureLow) + ' / '+ Math.round(data.daily.data[0].temperatureHigh )+ '</div>'; // Get daily temperature high and low
             html += '<div class="card-body summary">'+ data.daily.data[0].summary + '</div>'; // Get daily temperature summary
-            html += '<div class="card-body humidity">'+ percentageCreator(data.daily.data[0].humidity)+ '% humidity</div></div>'; // Get daily temperature humidity (decimal) and multiply by 100 to get percentage
+            html += '<div class="card-body humidity">'+ percentageCreator(data.daily.data[0].humidity)+ '% humidity</div>'; // Get humidity percentage
+            html += '<div class="ct-chart"></div>'; // Hourly temp chart
+            html += '</div>'; // Get daily temperature humidity (decimal) and multiply by 100 to get percentage
 
             // ------------------------ TOMORROW'S WEATHER CARD ------------------------
-
             html += '<div class="card">' + tomorrowImg; //get the current weather icon
+            html += '<div class="card-title tomorrow-header"> Tomorrow </div> '; //Tomorrow Header
             html += '<div class="card-body lowHigh">'+ Math.round(data.daily.data[1].temperatureLow) + ' / '+ Math.round(data.daily.data[1].temperatureHigh) + '</div>'; // Get daily temperature high and low
             html += '<div class="card-body summary">'+ data.daily.data[1].summary + '</div>'; // Get daily temperature summary
             html += '<div class="card-body humidity">'+ percentageCreator(data.daily.data[1].humidity) + '% humidity</div></div>'; // Get daily temperature humidity (decimal) and multiply by 100 to get percentage
 
             // ------------------------ THE DAY AFTER'S WEATHER CARD ------------------------
-
             html += '<div class="card">' + dayAfterImg; //get the current weather icon
-            html +='<div class="card-body lowHigh">'+ Math.round(data.daily.data[2].temperatureLow )+ ' / '+ Math.round(data.daily.data[2].temperatureHigh) + '</div>'; // Get daily temperature high and low
+            html += '<div class="card-title dayAfter-header"> Day After </div> '; //Day After Header
+            html += '<div class="card-body lowHigh">'+ Math.round(data.daily.data[2].temperatureLow )+ ' / '+ Math.round(data.daily.data[2].temperatureHigh) + '</div>'; // Get daily temperature high and low
             html += '<div class="card-body summary">'+ data.daily.data[2].summary + '</div>'; // Get daily temperature summary
-            html += '<div class="card-body humidity">'+ percentageCreator(data.daily.data[2].humidity) + '% humidity</div></div>'; // Get daily temperature humidity (decimal) and multiply by 100 to get percentage
+            html += '<div class="card-body humidity">'+ percentageCreator(data.daily.data[2].humidity) + '% humidity</div>';
+            html += '</div>'; // Get daily temperature humidity (decimal) and multiply by 100 to get percentage
 
             // ------------------------ WEATHER DATA --> HTML ------------------------
-            $('#weather-card').append(html); //Within the #weather-card div --> add the html data
+            $('#weather-card').html(html); //Within the #weather-card div --> add the html data
+
+                // [
+                //     {meta: 'description', value: data.hourly.data[0].temperature},
+                //     {meta: 'description', value: data.hourly.data[1].temperature},
+                //     {meta: 'description', value: data.hourly.data[2].temperature},
+                //     {meta: 'description', value: data.hourly.data[3].temperature},
+                //     {meta: 'description', value: data.hourly.data[4].temperature},
+                //     {meta: 'description', value: data.hourly.data[5].temperature},
+                //     {meta: 'description', value: data.hourly.data[6].temperature},
+                //     {meta: 'description', value: data.hourly.data[7].temperature},
+                //     {meta: 'description', value: data.hourly.data[8].temperature},
+                //     {meta: 'description', value: data.hourly.data[9].temperature},
+                //     {meta: 'description', value: data.hourly.data[10].temperature},
+                //     {meta: 'description', value: data.hourly.data[11].temperature},
+                //     {meta: 'description', value: data.hourly.data[12].temperature},
+                //     {meta: 'description', value: data.hourly.data[13].temperature},
+                //     {meta: 'description', value: data.hourly.data[14].temperature},
+                //     {meta: 'description', value: data.hourly.data[15].temperature}
+                // ]
+
+            // ------------------------ TEMPERATURE LINE CHART ------------------------
+            var chart = new Chartist.Line('.ct-chart', {
+                series: [
+                    [
+                        {meta: 'description', value: data.hourly.data[0].temperature},
+                        {meta: 'description', value: data.hourly.data[1].temperature},
+                        {meta: 'description', value: data.hourly.data[2].temperature},
+                        {meta: 'description', value: data.hourly.data[3].temperature},
+                        {meta: 'description', value: data.hourly.data[4].temperature},
+                        {meta: 'description', value: data.hourly.data[5].temperature},
+                        {meta: 'description', value: data.hourly.data[6].temperature},
+                        {meta: 'description', value: data.hourly.data[7].temperature},
+                        {meta: 'description', value: data.hourly.data[8].temperature},
+                        {meta: 'description', value: data.hourly.data[9].temperature},
+                        {meta: 'description', value: data.hourly.data[10].temperature},
+                        {meta: 'description', value: data.hourly.data[11].temperature},
+                        {meta: 'description', value: data.hourly.data[12].temperature},
+                        {meta: 'description', value: data.hourly.data[13].temperature},
+                        {meta: 'description', value: data.hourly.data[14].temperature},
+                        {meta: 'description', value: data.hourly.data[15].temperature}
+                    ],
+                ]
+            }, {
+                width: 200,
+                height: 200,
+                showLine: false,
+                showPoint: false,
+                axisX: {
+                    showLabel: false,
+                    showGrid: false
+                },
+                axisY: {
+                    showLabel: false,
+                    showGrid: false
+                },
+                low: 0,
+                showArea: true,
+  //               plugins: [
+  //                   ctPointLabels({
+  //                   textAnchor: 'middle',
+  //                   labelInterpolationFnc: function(value) {return '$' + value.toFixed(2)}
+  //   })
+  // ]
+            });
+
+
+            // ------------------------ CHART DRAW ANIMATION ------------------------
+            chart.on('draw', function(data) {
+                if(data.type === 'line' || data.type === 'area') {
+                    data.element.animate({
+                        d: {
+                            begin: 2000 * data.index,
+                            dur: 2000,
+                            from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
+                            to: data.path.clone().stringify(),
+                            easing: Chartist.Svg.Easing.easeOutQuint
+                        }
+                    });
+                }
+            });
 
         })
     }
-
 
     // ------------------------ WEATHER DATA FUNCTION CALL ------------------------
     getWeatherData(marker.getLngLat()); // Get the current marker coordinates and use them for the weather data coordinates

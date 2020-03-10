@@ -10,23 +10,24 @@ body{
 
 #weather-card-container{
     z-index: 2;
+    margin: 0;
+    padding: 0 3%;
 }
 
 .weather-header{
-    color: #000;
+    color: rgba(0, 0, 0, 0.23);
 }
 
 .card img {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     position: absolute;
     margin: 5% 70%;
 }
 
 .card {
-    width: 200px;
+    width: 300px;
     margin: 10px auto;
-    left: -400px;
     background-color: rgb(255, 255, 255);
     transition: box-shadow 600ms ease;
     padding: 5px;
@@ -40,7 +41,7 @@ div .card-body{
 }
 
 .card:hover {
-    box-shadow: 0 0 10px 5px darkslategrey;
+    box-shadow: 0 0 10px 5px #4d4d4d;
     transform: translateY(-5px) scale(1.005) translateZ(0);
 }
 
@@ -51,6 +52,15 @@ div .card-body{
 .humidity{
     font-size: .85em;
 }
+
+.ct-series-a .ct-area {
+    fill: lightblue;
+}
+
+.ct-chart-line{
+    width: 100%;
+}
+
 
 /*--------MAPBOX STYLING-------*/
 #map {
