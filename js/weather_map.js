@@ -251,15 +251,15 @@
 
 
             // ------------------------ TODAY'S WEATHER CARD ------------------------
-
             html += '<div class="card">' + todayImg; //get the current weather icon
             html += '<div class="card-title today-header"> Today </div> '; //Today Header
             html += '<div class="card-body lowHigh">'+ Math.round(data.daily.data[0].temperatureLow) + ' / '+ Math.round(data.daily.data[0].temperatureHigh )+ '</div>'; // Get daily temperature high and low
             html += '<div class="card-body summary">'+ data.daily.data[0].summary + '</div>'; // Get daily temperature summary
-            html += '<div class="card-body humidity">'+ percentageCreator(data.daily.data[0].humidity)+ '% humidity</div><div class="ct-chart"></div></div>'; // Get daily temperature humidity (decimal) and multiply by 100 to get percentage
+            html += '<div class="card-body humidity">'+ percentageCreator(data.daily.data[0].humidity)+ '% humidity</div>'; // Get humidity percentage
+            html += '<div class="ct-chart"></div>'; // Hourly temp chart
+            html += '</div>'; // Get daily temperature humidity (decimal) and multiply by 100 to get percentage
 
             // ------------------------ TOMORROW'S WEATHER CARD ------------------------
-
             html += '<div class="card">' + tomorrowImg; //get the current weather icon
             html += '<div class="card-title tomorrow-header"> Tomorrow </div> '; //Tomorrow Header
             html += '<div class="card-body lowHigh">'+ Math.round(data.daily.data[1].temperatureLow) + ' / '+ Math.round(data.daily.data[1].temperatureHigh) + '</div>'; // Get daily temperature high and low
@@ -267,10 +267,9 @@
             html += '<div class="card-body humidity">'+ percentageCreator(data.daily.data[1].humidity) + '% humidity</div></div>'; // Get daily temperature humidity (decimal) and multiply by 100 to get percentage
 
             // ------------------------ THE DAY AFTER'S WEATHER CARD ------------------------
-
             html += '<div class="card">' + dayAfterImg; //get the current weather icon
             html += '<div class="card-title dayAfter-header"> Day After </div> '; //Day After Header
-            html +='<div class="card-body lowHigh">'+ Math.round(data.daily.data[2].temperatureLow )+ ' / '+ Math.round(data.daily.data[2].temperatureHigh) + '</div>'; // Get daily temperature high and low
+            html += '<div class="card-body lowHigh">'+ Math.round(data.daily.data[2].temperatureLow )+ ' / '+ Math.round(data.daily.data[2].temperatureHigh) + '</div>'; // Get daily temperature high and low
             html += '<div class="card-body summary">'+ data.daily.data[2].summary + '</div>'; // Get daily temperature summary
             html += '<div class="card-body humidity">'+ percentageCreator(data.daily.data[2].humidity) + '% humidity</div>';
             html += '</div>'; // Get daily temperature humidity (decimal) and multiply by 100 to get percentage
@@ -278,27 +277,45 @@
             // ------------------------ WEATHER DATA --> HTML ------------------------
             $('#weather-card').html(html); //Within the #weather-card div --> add the html data
 
-            // ------------------------ TEMPERATURE LINE CHART ------------------------
+                // [
+                //     {meta: 'description', value: data.hourly.data[0].temperature},
+                //     {meta: 'description', value: data.hourly.data[1].temperature},
+                //     {meta: 'description', value: data.hourly.data[2].temperature},
+                //     {meta: 'description', value: data.hourly.data[3].temperature},
+                //     {meta: 'description', value: data.hourly.data[4].temperature},
+                //     {meta: 'description', value: data.hourly.data[5].temperature},
+                //     {meta: 'description', value: data.hourly.data[6].temperature},
+                //     {meta: 'description', value: data.hourly.data[7].temperature},
+                //     {meta: 'description', value: data.hourly.data[8].temperature},
+                //     {meta: 'description', value: data.hourly.data[9].temperature},
+                //     {meta: 'description', value: data.hourly.data[10].temperature},
+                //     {meta: 'description', value: data.hourly.data[11].temperature},
+                //     {meta: 'description', value: data.hourly.data[12].temperature},
+                //     {meta: 'description', value: data.hourly.data[13].temperature},
+                //     {meta: 'description', value: data.hourly.data[14].temperature},
+                //     {meta: 'description', value: data.hourly.data[15].temperature}
+                // ]
 
+            // ------------------------ TEMPERATURE LINE CHART ------------------------
             var chart = new Chartist.Line('.ct-chart', {
                 series: [
                     [
-                        data.hourly.data[0].temperature,
-                        data.hourly.data[1].temperature,
-                        data.hourly.data[2].temperature,
-                        data.hourly.data[3].temperature,
-                        data.hourly.data[4].temperature,
-                        data.hourly.data[5].temperature,
-                        data.hourly.data[6].temperature,
-                        data.hourly.data[7].temperature,
-                        data.hourly.data[8].temperature,
-                        data.hourly.data[9].temperature,
-                        data.hourly.data[10].temperature,
-                        data.hourly.data[11].temperature,
-                        data.hourly.data[12].temperature,
-                        data.hourly.data[13].temperature,
-                        data.hourly.data[14].temperature,
-                        data.hourly.data[15].temperature
+                        {meta: 'description', value: data.hourly.data[0].temperature},
+                        {meta: 'description', value: data.hourly.data[1].temperature},
+                        {meta: 'description', value: data.hourly.data[2].temperature},
+                        {meta: 'description', value: data.hourly.data[3].temperature},
+                        {meta: 'description', value: data.hourly.data[4].temperature},
+                        {meta: 'description', value: data.hourly.data[5].temperature},
+                        {meta: 'description', value: data.hourly.data[6].temperature},
+                        {meta: 'description', value: data.hourly.data[7].temperature},
+                        {meta: 'description', value: data.hourly.data[8].temperature},
+                        {meta: 'description', value: data.hourly.data[9].temperature},
+                        {meta: 'description', value: data.hourly.data[10].temperature},
+                        {meta: 'description', value: data.hourly.data[11].temperature},
+                        {meta: 'description', value: data.hourly.data[12].temperature},
+                        {meta: 'description', value: data.hourly.data[13].temperature},
+                        {meta: 'description', value: data.hourly.data[14].temperature},
+                        {meta: 'description', value: data.hourly.data[15].temperature}
                     ],
                 ]
             }, {
@@ -315,9 +332,17 @@
                     showGrid: false
                 },
                 low: 0,
-                showArea: true
+                showArea: true,
+  //               plugins: [
+  //                   ctPointLabels({
+  //                   textAnchor: 'middle',
+  //                   labelInterpolationFnc: function(value) {return '$' + value.toFixed(2)}
+  //   })
+  // ]
             });
 
+
+            // ------------------------ CHART DRAW ANIMATION ------------------------
             chart.on('draw', function(data) {
                 if(data.type === 'line' || data.type === 'area') {
                     data.element.animate({

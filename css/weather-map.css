@@ -53,6 +53,15 @@ div .card-body{
     font-size: .85em;
 }
 
+.ct-series-a .ct-area {
+    fill: lightblue;
+}
+
+.ct-chart-line{
+    width: 100%;
+}
+
+
 /*--------MAPBOX STYLING-------*/
 #map {
     width: 100%;
