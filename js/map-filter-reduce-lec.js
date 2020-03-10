@@ -165,37 +165,58 @@ $(document).ready(function() {
 
     /********************************* 1 *********************************/
     //  1. Use forEach()
+    var mbptotal = 0;
 
+    mbpModels.forEach(function(mbp){ // iterate through the laptops
+
+        mbptotal += mbp.price; //get the current item price and add it to the total
+
+    });
+
+    $('#reduceForEach').html(commaThousands(mbptotal));
 
     /********************************* 2 *********************************/
     //  2. Use reduce()
+    var mbptotalReduce = mbpModels.reduce(function (total, mbp){ // use reduce to get the total and mbp
+
+        return total + mbp.price; // add the price to the total
+
+        }, 0); //setting the initial value to 0
+
+    $('#reduce').html(commaThousands(mbptotalReduce));
 
 
     /********************************* 3 *********************************/
     //  3. Use ES6
+    var mbptotalEs6 = mbpModels.reduce((total, mbp) => total + mbp.price, 0); //add the price to the total, count begins at 0
+
+    $('#reduceEs6').html(commaThousands(mbptotalEs6));
 
 
     /**************************** LEAVE IN FOR STUDENTS **(********************************/
     /*********************** function to get commas in number *****************************/
-    function commaThousandsRefactor(number) {
-        let numArr = number.toString().split('');
-        let numDigits = numArr.length;
-        numArr.reverse();
-        // 1-3 : no commas
-        // 4-6 : 1 comma
-        // 7-9 : 2 commas
-        // ...   ...
-        // 1. 123456789
-        // 2. 123456,789
-        // 3. 123,456,789
-        for(let i=0; i<(numDigits+numDigits%3)/3; i++) {
-            numArr.splice(3, 0, ','); //987,654321
-            numArr.splice(7, 0, ','); //987,654,321
-            
-        }
+    // function commaThousandsRefactor(number) {
+    //     let numArr = number.toString().split('');
+    //     let numDigits = numArr.length;
+    //     numArr.reverse();
+    //     // 1-3 : no commas
+    //     // 4-6 : 1 comma
+    //     // 7-9 : 2 commas
+    //     // ...   ...
+    //     // 1. 123456789
+    //     // 2. 123456,789
+    //     // 3. 123,456,789
+    //     for(let i=0; i<(numDigits+numDigits%3)/3; i++) {
+    //         numArr.splice(3, 0, ','); //987,654321
+    //         numArr.splice(7, 0, ','); //987,654,321
+    //
+    //     }
+    //
+    // }
+    //
+    // commaThousandsRefactor(10485);
 
-    }
-    commaThousandsRefactor(10485);
+
     function commaThousands(number) {
         var numArr = number.toString().split('');
         var startPos = numArr.length % 3;
